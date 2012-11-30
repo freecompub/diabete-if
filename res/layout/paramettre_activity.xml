@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:layout_gravity="top"
+	android:layout_marginLeft="10dp"
+	android:orientation="vertical" >
+
+	<TextView
+		android:id="@+id/textView2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_vertical|center_horizontal"
+		android:layout_marginTop="10dp"
+		android:text="@string/param_trer_votre_application"
+		android:textAppearance="?android:attr/textAppearanceLarge" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="20dp" >
+
+		<TextView
+			android:id="@+id/TextView02"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:text="@string/ratio_matin" />
+
+		<EditText
+			android:id="@+id/EditText_ratio_matin"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="65dp"
+			android:layout_marginRight="10dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="number|numberSigned|numberDecimal" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp" >
+
+		<TextView
+			android:id="@+id/TextView_ratio_midi"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:text="@string/ratio_midi" />
+
+		<EditText
+			android:id="@+id/EditText_ratio_midi"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="75dp"
+			android:layout_marginRight="10dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="numberDecimal" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp" >
+
+		<TextView
+			android:id="@+id/TextView03"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:text="@string/ratio_soir" />
+
+		<EditText
+			android:id="@+id/EditText_ratio_soir"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="80dp"
+			android:layout_marginRight="10dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="numberDecimal" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp" >
+
+		<TextView
+			android:id="@+id/ratiom"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:text="@string/sencibilit_resucrage" />
+
+		<EditText
+			android:id="@+id/edit_sencibilite"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="15dp"
+			android:layout_marginRight="10dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="numberDecimal" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp" >
+
+		<TextView
+			android:id="@+id/TextView04"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:text="@string/sencibilit_matin" />
+
+		<EditText
+			android:id="@+id/EditText_sencibilite_insu_matin"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="40dp"
+			android:layout_marginRight="10dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="numberDecimal" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp" >
+
+		<TextView
+			android:id="@+id/TextView05"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:text="@string/sencibilit_apr_s_midi" />
+
+		<EditText
+			android:id="@+id/EditText_sencibilite_insul_soir"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="10dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="numberDecimal" />
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="5dp" >
+
+		<TextView
+			android:id="@+id/TextView01"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:text="@string/objectife_glecymeque" />
+
+		<EditText
+			android:id="@+id/EditText_minG"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="5dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="numberDecimal" />
+
+		<TextView
+			android:id="@+id/textView1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="5dp"
+			android:text="@string/_a" />
+
+		<EditText
+			android:id="@+id/max_glyf"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="10dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="number" >
+
+			<requestFocus />
+		</EditText>
+	</LinearLayout>
+
+	<Button
+		android:id="@+id/button_save"
+		android:layout_width="95dp"
+		android:layout_height="wrap_content"
+		android:layout_gravity="right|center_vertical|center_horizontal"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="20dp"
+		android:background="@drawable/btn_gris_small"
+		android:onClick="goToMainActivity"
+		android:text="@string/save" />
+
+</LinearLayout>
