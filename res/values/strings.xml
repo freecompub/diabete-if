@@ -28,4 +28,10 @@
 
 	<string name="param_trer_votre_application">Paramétrer votre application</string>
 
+	<string name="insuline_pour_manger">insuline Pour manger</string>
+
+	<string name="correction">correction</string>
+
+	<string name="resucrage">Resucrage</string>
+
 </resources>

@@ -13,10 +13,12 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements OnItemSelectedListener {
+public class MainActivity extends Activity implements OnItemSelectedListener, OnCheckedChangeListener{
 
 	private EditText glycimieActuelle;
 	private EditText glycemie;
@@ -25,7 +27,9 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 	private double insulineCorrection = 0, insulineManger = 0, resucrage = 0;
 	private TextView results;
 	private TextView results_resucrage;
-
+	private int selectionRadio = -1;
+	private RadioGroup radioGroup;
+	protected static final String TAG = MainActivity.class.getSimpleName() ;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -56,6 +60,9 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 		// Apply the adapter to the spinner
 		peroide.setAdapter(adapter);
 		peroide.setOnItemSelectedListener(this);
+		
+		radioGroup = (RadioGroup) findViewById(R.id.radiogroup_selection);
+		radioGroup.setOnCheckedChangeListener(this);
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -165,4 +172,25 @@ public class MainActivity extends Activity implements OnItemSelectedListener {
 
 	}
 
+	public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (checkedId) {
+        case -1:
+          Log.v(TAG, "Choices cleared!");
+          break;
+        case R.id.radioButton_correction:
+          Log.v(TAG, "calculs pour correction");
+          break;
+        case R.id.radioButton_manger:
+          Log.v(TAG, "calcule pour insuline");
+          break;
+        default:
+          Log.v(TAG, "Huh?");
+          break;
+        }
+		
+	}
+
+	
+	
+	
 }
