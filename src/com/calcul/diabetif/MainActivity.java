@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,13 +14,17 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class MainActivity extends Activity implements OnItemSelectedListener, OnCheckedChangeListener{
+public class MainActivity extends Activity implements OnItemSelectedListener,
+		OnCheckedChangeListener {
 
+	private LinearLayout layaoutInsuline;
+	private LinearLayout layaoutResucrage;
 	private EditText glycimieActuelle;
 	private EditText glycemie;
 	private Spinner peroide;
@@ -29,7 +34,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener, On
 	private TextView results_resucrage;
 	private int selectionRadio = -1;
 	private RadioGroup radioGroup;
-	protected static final String TAG = MainActivity.class.getSimpleName() ;
+	protected static final String TAG = MainActivity.class.getSimpleName();
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -46,6 +52,11 @@ public class MainActivity extends Activity implements OnItemSelectedListener, On
 	}
 
 	void initUI() {
+
+		layaoutInsuline = (LinearLayout) findViewById(R.id.layout_insuline);
+		layaoutInsuline.setVisibility(View.GONE);
+		layaoutResucrage = (LinearLayout) findViewById(R.id.layout_resucrage);
+		layaoutResucrage.setVisibility(View.GONE);
 		glycimieActuelle = (EditText) findViewById(R.id.texteEdit_glycemie);
 		glycemie = (EditText) findViewById(R.id.glucide);
 		peroide = (Spinner) findViewById(R.id.spinner1);
@@ -60,9 +71,10 @@ public class MainActivity extends Activity implements OnItemSelectedListener, On
 		// Apply the adapter to the spinner
 		peroide.setAdapter(adapter);
 		peroide.setOnItemSelectedListener(this);
-		
+
 		radioGroup = (RadioGroup) findViewById(R.id.radiogroup_selection);
 		radioGroup.setOnCheckedChangeListener(this);
+		getOperation();
 	}
 
 	public boolean onOptionsItemSelected(MenuItem item) {
@@ -151,20 +163,33 @@ public class MainActivity extends Activity implements OnItemSelectedListener, On
 		}
 	}
 
+	public void makeCalculOnUI() {
+
+		if (selectionRadio == 1) {
+			layaoutResucrage.setVisibility(View.VISIBLE);
+			layaoutInsuline.setVisibility(View.GONE);
+			results_resucrage.setText(String.valueOf(resucrage));
+			
+		} else if (selectionRadio == 2) {
+			layaoutResucrage.setVisibility(View.GONE);
+			layaoutInsuline.setVisibility(View.VISIBLE);
+			DecimalFormat df = new DecimalFormat();
+			df.setMaximumFractionDigits(2);
+			df.setMinimumFractionDigits(2);
+			df.setDecimalSeparatorAlwaysShown(true);
+
+			String temp = df.format(insulineCorrection + insulineManger);
+			results.setText(temp);
+
+		}
+	}
+
 	public void onItemSelected(AdapterView<?> parent, View view, int pos,
 			long id) {
 		selected_Periode = parent.getItemAtPosition(pos).toString();
 		calculerCorrectionInsuline();
 		calculerInsulinePourManger();
-
-		DecimalFormat df = new DecimalFormat();
-		df.setMaximumFractionDigits(2);
-		df.setMinimumFractionDigits(2);
-		df.setDecimalSeparatorAlwaysShown(true);
-
-		String temp = df.format(insulineCorrection + insulineManger);
-		results.setText(temp);
-		results_resucrage.setText(String.valueOf(resucrage));
+		makeCalculOnUI();
 	}
 
 	public void onNothingSelected(AdapterView<?> arg0) {
@@ -173,24 +198,55 @@ public class MainActivity extends Activity implements OnItemSelectedListener, On
 	}
 
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch (checkedId) {
-        case -1:
-          Log.v(TAG, "Choices cleared!");
-          break;
-        case R.id.radioButton_correction:
-          Log.v(TAG, "calculs pour correction");
-          break;
-        case R.id.radioButton_manger:
-          Log.v(TAG, "calcule pour insuline");
-          break;
-        default:
-          Log.v(TAG, "Huh?");
-          break;
-        }
-		
+		switch (checkedId) {
+		case -1:
+			Log.v(TAG, "Choices cleared!");
+			break;
+		case R.id.radioButton_correction:
+			Log.v(TAG, "calculs pour correction");
+			this.selectionRadio = 1;
+			layaoutResucrage.setVisibility(View.VISIBLE);
+			layaoutInsuline.setVisibility(View.GONE);
+			break;
+		case R.id.radioButton_manger:
+			Log.v(TAG, "calcule pour insuline");
+			this.selectionRadio = 2;
+			layaoutResucrage.setVisibility(View.GONE);
+			layaoutInsuline.setVisibility(View.VISIBLE);
+			break;
+		default:
+			Log.v(TAG, "Huh?");
+			break;
+		}
+
 	}
 
-	
-	
-	
+	private void getOperation() {
+		Log.v(TAG, "getNamePrefix()");
+
+		switch (radioGroup.getCheckedRadioButtonId()) {
+		case -1:
+			Log.v(TAG, "Choices cleared!");
+			this.selectionRadio = -1;
+			break;
+		case R.id.radioButton_correction:
+			Log.v(TAG, "calculs pour correction");
+			this.selectionRadio = 1;
+			layaoutResucrage.setVisibility(View.VISIBLE);
+			layaoutInsuline.setVisibility(View.GONE);
+			break;
+		case R.id.radioButton_manger:
+			Log.v(TAG, "calcule pour insuline");
+			this.selectionRadio = 2;
+			layaoutResucrage.setVisibility(View.GONE);
+			layaoutInsuline.setVisibility(View.VISIBLE);
+			break;
+		default:
+			Log.v(TAG, "Huh?");
+			this.selectionRadio = -1;
+			break;
+		}
+
+	}
+
 }

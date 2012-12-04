@@ -21,34 +21,37 @@ public final class R {
         public static final int spinner=0x7f020004;
     }
     public static final class id {
-        public static final int EditText_minG=0x7f080019;
-        public static final int EditText_ratio_matin=0x7f080011;
-        public static final int EditText_ratio_midi=0x7f080013;
-        public static final int EditText_ratio_soir=0x7f080014;
-        public static final int EditText_sencibilite_insu_matin=0x7f080017;
-        public static final int EditText_sencibilite_insul_soir=0x7f080018;
+        public static final int EditText_minG=0x7f08001b;
+        public static final int EditText_ratio_matin=0x7f080013;
+        public static final int EditText_ratio_midi=0x7f080015;
+        public static final int EditText_ratio_soir=0x7f080016;
+        public static final int EditText_sencibilite_insu_matin=0x7f080019;
+        public static final int EditText_sencibilite_insul_soir=0x7f08001a;
         public static final int LinearLayout1=0x7f080000;
         public static final int TextView01=0x7f080008;
         public static final int TextView02=0x7f08000b;
-        public static final int TextView03=0x7f080010;
+        public static final int TextView03=0x7f080012;
         public static final int TextView04=0x7f08000a;
-        public static final int TextView05=0x7f08000f;
-        public static final int TextView_ratio_midi=0x7f080012;
-        public static final int button_save=0x7f08001b;
-        public static final int edit_sencibilite=0x7f080016;
+        public static final int TextView05=0x7f080011;
+        public static final int TextView_ratio_midi=0x7f080014;
+        public static final int button_save=0x7f08001d;
+        public static final int edit_sencibilite=0x7f080018;
         public static final int glucide=0x7f080009;
         public static final int glycemie=0x7f080005;
-        public static final int max_glyf=0x7f08001a;
-        public static final int menu_settings=0x7f08001c;
+        public static final int layout_insuline=0x7f08000d;
+        public static final int layout_resucrage=0x7f080010;
+        public static final int max_glyf=0x7f08001c;
+        public static final int menu_computing=0x7f08001f;
+        public static final int menu_settings=0x7f08001e;
         public static final int radioButton_correction=0x7f080003;
         public static final int radioButton_manger=0x7f080004;
         public static final int radiogroup_selection=0x7f080002;
-        public static final int ratiom=0x7f080015;
+        public static final int ratiom=0x7f080017;
         public static final int spinner1=0x7f08000c;
         public static final int textView1=0x7f080007;
-        public static final int textView2=0x7f08000e;
+        public static final int textView2=0x7f08000f;
         public static final int textView3=0x7f080001;
-        public static final int textView4=0x7f08000d;
+        public static final int textView4=0x7f08000e;
         public static final int texteEdit_glycemie=0x7f080006;
     }
     public static final class layout {
