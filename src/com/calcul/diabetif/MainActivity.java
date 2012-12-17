@@ -5,7 +5,8 @@ import java.text.DecimalFormat;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -21,7 +22,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnItemSelectedListener,
-		OnCheckedChangeListener {
+		OnCheckedChangeListener,TextWatcher {
 
 	private LinearLayout layaoutInsuline;
 	private LinearLayout layaoutResucrage;
@@ -30,7 +31,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 	private Spinner peroide;
 	private String selected_Periode;
 	private double insulineCorrection = 0, insulineManger = 0, resucrage = 0;
-	private TextView results;
+	private TextView results_insuline_pour_manger;
+	private TextView results_correction_pour_manger;
 	private TextView results_resucrage;
 	private int selectionRadio = -1;
 	private RadioGroup radioGroup;
@@ -58,9 +60,12 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		layaoutResucrage = (LinearLayout) findViewById(R.id.layout_resucrage);
 		layaoutResucrage.setVisibility(View.GONE);
 		glycimieActuelle = (EditText) findViewById(R.id.texteEdit_glycemie);
+		glycimieActuelle.addTextChangedListener(this);
 		glycemie = (EditText) findViewById(R.id.glucide);
+		glycemie.addTextChangedListener(this);
 		peroide = (Spinner) findViewById(R.id.spinner1);
-		results = (TextView) findViewById(R.id.textView2);
+		results_insuline_pour_manger = (TextView) findViewById(R.id.textView2);
+		results_correction_pour_manger = (TextView) findViewById(R.id.TextView08);
 		results_resucrage = (TextView) findViewById(R.id.TextView03);
 
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -178,8 +183,11 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			df.setMinimumFractionDigits(2);
 			df.setDecimalSeparatorAlwaysShown(true);
 
-			String temp = df.format(insulineCorrection + insulineManger);
-			results.setText(temp);
+			String temp = df.format(insulineManger);
+			results_insuline_pour_manger.setText(temp);
+			
+			temp = df.format(insulineCorrection);
+			results_correction_pour_manger.setText(temp);
 
 		}
 	}
@@ -247,6 +255,25 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			break;
 		}
 
+	}
+
+	public void afterTextChanged(Editable arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void beforeTextChanged(CharSequence s, int start, int count,
+			int after) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void onTextChanged(CharSequence s, int start, int before, int count) {
+		selected_Periode = peroide.getSelectedItem().toString();
+		calculerCorrectionInsuline();
+		calculerInsulinePourManger();
+		makeCalculOnUI();
+		
 	}
 
 }

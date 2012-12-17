@@ -34,4 +34,8 @@
 
 	<string name="resucrage">Resucrage</string>
 
+	<string name="nombre_d_apos_unit_d_apos_insuline">Nombre d\'unité d\'insuline</string>
+
+	<string name="selectionner_operation">Selectionner Operation</string>
+
 </resources>
