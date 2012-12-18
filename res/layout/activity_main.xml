@@ -168,11 +168,12 @@
 					android:id="@+id/TextView07"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dp"
 					android:layout_marginRight="10dp"
 					android:layout_marginTop="5dp"
 					android:layout_weight="1"
-					android:maxLength="4"
-					android:text="cfdcdscsd" />
+					android:maxLines="2"
+					android:text="@string/correction" />
 
 				<TextView
 					android:id="@+id/TextView08"
@@ -181,8 +182,7 @@
 					android:layout_marginRight="10dp"
 					android:layout_marginTop="5dp"
 					android:layout_weight="1"
-					android:maxLength="4"
-					android:text="12344" />
+					android:maxLength="4" />
 			</LinearLayout>
 
 			<LinearLayout
@@ -195,10 +195,11 @@
 					android:id="@+id/TextView06"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
+					android:layout_marginLeft="10dp"
 					android:layout_marginRight="10dp"
 					android:layout_marginTop="5dp"
 					android:layout_weight="1"
-					android:maxLength="4"
+					android:text="@string/insuline_pour_manger"
 					android:visibility="visible" />
 
 				<TextView
@@ -224,9 +225,9 @@
 			android:id="@+id/TextView05"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_marginLeft="10dp"
+			android:layout_marginLeft="5dp"
 			android:layout_marginTop="5dp"
-			android:text="Correction" />
+			android:text="@string/correction" />
 
 		<TextView
 			android:id="@+id/TextView03"

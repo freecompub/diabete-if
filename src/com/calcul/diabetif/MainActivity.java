@@ -155,7 +155,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			glycimie = Double.parseDouble(tmp);
 		}
 
-		if (glycimie < maxGlycimie && glycimie > minGlycimie) {
+		if (glycimie <= maxGlycimie && glycimie >= minGlycimie) {
+			insulineCorrection=0;
 			return;
 		}
 
