@@ -4,6 +4,7 @@
 	android:id="@+id/LinearLayout1"
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
+	android:background="@drawable/bg"
 	android:orientation="vertical" >
 
 	<LinearLayout
@@ -30,16 +31,19 @@
 				android:id="@+id/radioButton_correction"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical|center_horizontal"
 				android:layout_marginLeft="5dp"
 				android:checked="true"
-				android:text="@string/correction" />
+				android:text="@string/resucrage" />
 
 			<RadioButton
 				android:id="@+id/radioButton_manger"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
+				android:layout_gravity="center_vertical|center_horizontal"
+				android:layout_marginLeft="20dp"
 				android:layout_marginRight="10dp"
-				android:text="@string/insuline_pour_manger" />
+				android:text="@string/insuline" />
 		</RadioGroup>
 	</LinearLayout>
 
@@ -118,7 +122,7 @@
 			android:id="@+id/TextView02"
 			android:layout_width="0dp"
 			android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal"
+			android:layout_gravity="center_vertical|center_horizontal"
 			android:layout_marginLeft="5dp"
 			android:layout_marginRight="5dp"
 			android:layout_weight="1"
@@ -129,11 +133,12 @@
 
 		<Spinner
 			android:id="@+id/spinner1"
-			android:layout_width="182dp"
+			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
-			android:layout_gravity="center_horizontal"
+			android:layout_gravity="center_vertical|center_horizontal"
 			android:layout_marginRight="10dp"
-			android:background="@drawable/spinner" />
+			android:background="@drawable/spinner"
+			android:paddingLeft="-5dp" />
 	</LinearLayout>
 
 	<LinearLayout
@@ -143,76 +148,81 @@
 		android:layout_marginTop="20dp"
 		android:orientation="vertical" >
 
-		<TextView
-			android:id="@+id/textView4"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="10dp"
-			android:layout_marginTop="5dp"
-			android:layout_weight="1"
-			android:text="@string/nombre_d_apos_unit_d_apos_insuline" />
-
-		<LinearLayout
+		<RelativeLayout
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:layout_weight="1"
-			android:orientation="vertical" >
+			android:orientation="horizontal" >
 
-			<LinearLayout
-				android:layout_width="match_parent"
+			<TextView
+				android:id="@+id/textView4"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_weight="1"
-				android:orientation="horizontal" >
+				android:layout_alignParentLeft="true"
+				android:layout_marginLeft="10dp"
+				android:layout_marginTop="5dp"
+				android:text="@string/nombre_d_apos_unit_d_apos_insuline" />
 
-				<TextView
-					android:id="@+id/TextView07"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginLeft="10dp"
-					android:layout_marginRight="10dp"
-					android:layout_marginTop="5dp"
-					android:layout_weight="1"
-					android:maxLines="2"
-					android:text="@string/correction" />
-
-				<TextView
-					android:id="@+id/TextView08"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginRight="10dp"
-					android:layout_marginTop="5dp"
-					android:layout_weight="1"
-					android:maxLength="4" />
-			</LinearLayout>
-
-			<LinearLayout
-				android:layout_width="match_parent"
+			<TextView
+				android:id="@+id/total_insulin"
+				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:layout_weight="1"
-				android:orientation="horizontal" >
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="10dp"
+				android:maxLength="6" />
+		</RelativeLayout>
 
-				<TextView
-					android:id="@+id/TextView06"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginLeft="10dp"
-					android:layout_marginRight="10dp"
-					android:layout_marginTop="5dp"
-					android:layout_weight="1"
-					android:text="@string/insuline_pour_manger"
-					android:visibility="visible" />
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal" >
 
-				<TextView
-					android:id="@+id/textView2"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:layout_marginRight="10dp"
-					android:layout_marginTop="5dp"
-					android:layout_weight="1"
-					android:maxLength="4"
-					android:visibility="visible" />
-			</LinearLayout>
-		</LinearLayout>
+			<TextView
+				android:id="@+id/TextView07"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="5dp"
+				android:maxLines="2"
+				android:text="@string/correction" />
+
+			<TextView
+				android:id="@+id/TextView08"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="5dp"
+				android:maxLength="6" />
+		</RelativeLayout>
+
+		<RelativeLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal" >
+
+			<TextView
+				android:id="@+id/TextView06"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true"
+				android:layout_marginLeft="10dp"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="5dp"
+				android:text="@string/insuline_pour_manger"
+				android:visibility="visible" />
+
+			<TextView
+				android:id="@+id/textView2"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_alignParentRight="true"
+				android:layout_marginRight="10dp"
+				android:layout_marginTop="5dp"
+				android:maxLength="6"
+				android:visibility="visible" />
+		</RelativeLayout>
 	</LinearLayout>
 
 	<LinearLayout

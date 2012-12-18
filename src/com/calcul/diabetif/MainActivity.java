@@ -22,7 +22,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends Activity implements OnItemSelectedListener,
-		OnCheckedChangeListener,TextWatcher {
+		OnCheckedChangeListener, TextWatcher {
 
 	private LinearLayout layaoutInsuline;
 	private LinearLayout layaoutResucrage;
@@ -33,6 +33,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 	private double insulineCorrection = 0, insulineManger = 0, resucrage = 0;
 	private TextView results_insuline_pour_manger;
 	private TextView results_correction_pour_manger;
+	private TextView total_insuline;
 	private TextView results_resucrage;
 	private int selectionRadio = -1;
 	private RadioGroup radioGroup;
@@ -67,6 +68,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		results_insuline_pour_manger = (TextView) findViewById(R.id.textView2);
 		results_correction_pour_manger = (TextView) findViewById(R.id.TextView08);
 		results_resucrage = (TextView) findViewById(R.id.TextView03);
+		total_insuline = (TextView) findViewById(R.id.total_insulin);
 
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
 				this, R.array.period_array,
@@ -150,22 +152,26 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			String tmp = glycimieActuelle.getText().toString().trim();
 			Log.v("MainActivity: ", tmp);
 			if (tmp == null || tmp.equals("")) {
-				tmp = "0";
+				tmp = "-1";
 			}
 			glycimie = Double.parseDouble(tmp);
 		}
 
-		if (glycimie <= maxGlycimie && glycimie >= minGlycimie) {
-			insulineCorrection=0;
+		if (glycimie <= maxGlycimie && glycimie >= minGlycimie && this.selectionRadio==2) {
+			insulineCorrection = 0;
 			return;
 		}
 
 		else if (glycimie > maxGlycimie) {
 			insulineCorrection = (glycimie - maxGlycimie) / (sencibilite * 100);
-		} else if (glycimie < minGlycimie) {
+		} else if (glycimie < minGlycimie && glycimie>0) {
 			insulineCorrection = (glycimie - minGlycimie) / (sencibilite * 100);
 			resucrage = (minGlycimie - glycimie)
 					/ (sencibilite_resucrage * 100);
+		}
+		else {
+			insulineCorrection=0;
+			resucrage=0;
 		}
 	}
 
@@ -174,8 +180,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		if (selectionRadio == 1) {
 			layaoutResucrage.setVisibility(View.VISIBLE);
 			layaoutInsuline.setVisibility(View.GONE);
-			results_resucrage.setText(String.valueOf(resucrage));
-			
+			results_resucrage.setText(String.valueOf(resucrage)+" g");
+
 		} else if (selectionRadio == 2) {
 			layaoutResucrage.setVisibility(View.GONE);
 			layaoutInsuline.setVisibility(View.VISIBLE);
@@ -186,9 +192,12 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 
 			String temp = df.format(insulineManger);
 			results_insuline_pour_manger.setText(temp);
-			
+
 			temp = df.format(insulineCorrection);
 			results_correction_pour_manger.setText(temp);
+			
+			temp = df.format(insulineCorrection+insulineManger);
+			total_insuline.setText(temp);
 
 		}
 	}
@@ -214,14 +223,12 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		case R.id.radioButton_correction:
 			Log.v(TAG, "calculs pour correction");
 			this.selectionRadio = 1;
-			layaoutResucrage.setVisibility(View.VISIBLE);
-			layaoutInsuline.setVisibility(View.GONE);
+			updateForResucrage();
 			break;
 		case R.id.radioButton_manger:
 			Log.v(TAG, "calcule pour insuline");
 			this.selectionRadio = 2;
-			layaoutResucrage.setVisibility(View.GONE);
-			layaoutInsuline.setVisibility(View.VISIBLE);
+			updateForInsuline();
 			break;
 		default:
 			Log.v(TAG, "Huh?");
@@ -241,14 +248,12 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		case R.id.radioButton_correction:
 			Log.v(TAG, "calculs pour correction");
 			this.selectionRadio = 1;
-			layaoutResucrage.setVisibility(View.VISIBLE);
-			layaoutInsuline.setVisibility(View.GONE);
+			updateForResucrage();
 			break;
 		case R.id.radioButton_manger:
 			Log.v(TAG, "calcule pour insuline");
 			this.selectionRadio = 2;
-			layaoutResucrage.setVisibility(View.GONE);
-			layaoutInsuline.setVisibility(View.VISIBLE);
+			updateForInsuline();
 			break;
 		default:
 			Log.v(TAG, "Huh?");
@@ -260,13 +265,13 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 
 	public void afterTextChanged(Editable arg0) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void beforeTextChanged(CharSequence s, int start, int count,
 			int after) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -274,7 +279,20 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		calculerCorrectionInsuline();
 		calculerInsulinePourManger();
 		makeCalculOnUI();
-		
+
+	}
+	
+	public void updateForResucrage() {
+		layaoutResucrage.setVisibility(View.VISIBLE);
+		layaoutInsuline.setVisibility(View.GONE);
+		glycemie.setEnabled(false);
+		peroide.setEnabled(false);
+	}
+	public void updateForInsuline() {
+		layaoutResucrage.setVisibility(View.GONE);
+		layaoutInsuline.setVisibility(View.VISIBLE);
+		glycemie.setEnabled(true);
+		peroide.setEnabled(true);
 	}
 
 }

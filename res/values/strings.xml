@@ -21,21 +21,17 @@
 	<string name="save">Save</string>
 
 	<string-array name="period_array">
-		<item>  Matin</item>
-		<item>  Midi</item>
-		<item>  Soir</item>
+		<item>Matin</item>
+		<item>Midi</item>
+		<item>Soir</item>
 	</string-array>
 
 	<string name="param_trer_votre_application">Paramétrer votre application</string>
-
 	<string name="insuline_pour_manger">Insuline pour manger</string>
-
 	<string name="correction">Correction</string>
-
 	<string name="resucrage">Resucrage</string>
-
 	<string name="nombre_d_apos_unit_d_apos_insuline">Nombre d\'unité d\'insuline</string>
-
 	<string name="selectionner_operation">Selectionner Operation</string>
+	<string name="insuline">Insuline</string>
 
 </resources>
