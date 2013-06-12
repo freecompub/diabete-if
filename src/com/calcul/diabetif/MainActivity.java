@@ -1,5 +1,6 @@
 package com.calcul.diabetif;
 
+import java.sql.Date;
 import java.text.DecimalFormat;
 
 import android.app.Activity;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
@@ -21,22 +23,27 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.calcul.diabetif.journal.manager.PrelevementManager;
+import com.calcul.diabetif.journal.model.Prelevement;
+
 public class MainActivity extends Activity implements OnItemSelectedListener,
 		OnCheckedChangeListener, TextWatcher {
 
 	private LinearLayout layaoutInsuline;
 	private LinearLayout layaoutResucrage;
-	private EditText glycimieActuelle;
-	private EditText glycemie;
+	private EditText bloodGlucose;
+	private EditText foodGlucose;
 	private Spinner peroide;
 	private String selected_Periode;
-	private double insulineCorrection = 0, insulineManger = 0, resucrage = 0;
-	private TextView results_insuline_pour_manger;
-	private TextView results_correction_pour_manger;
+	private double insulinForCorrection = 0, insulinForFood = 0,
+			reSugaring = 0;
+	private TextView results_insulinForFood;
+	private TextView results_insulinforCorrection;
 	private TextView total_insuline;
-	private TextView results_resucrage;
+	private TextView resultsForReSugaring;
 	private int selectionRadio = -1;
-	private RadioGroup radioGroup;
+	private RadioGroup operationswich;
+	private PrelevementManager prelevementManager;
 	protected static final String TAG = MainActivity.class.getSimpleName();
 
 	@Override
@@ -44,7 +51,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		UserPreference.init(getApplicationContext());
-
+		prelevementManager = PrelevementManager.manager();
 		initUI();
 	}
 
@@ -60,14 +67,14 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		layaoutInsuline.setVisibility(View.GONE);
 		layaoutResucrage = (LinearLayout) findViewById(R.id.layout_resucrage);
 		layaoutResucrage.setVisibility(View.GONE);
-		glycimieActuelle = (EditText) findViewById(R.id.texteEdit_glycemie);
-		glycimieActuelle.addTextChangedListener(this);
-		glycemie = (EditText) findViewById(R.id.glucide);
-		glycemie.addTextChangedListener(this);
+		bloodGlucose = (EditText) findViewById(R.id.texteEdit_glycemie);
+		bloodGlucose.addTextChangedListener(this);
+		foodGlucose = (EditText) findViewById(R.id.glucide);
+		foodGlucose.addTextChangedListener(this);
 		peroide = (Spinner) findViewById(R.id.spinner1);
-		results_insuline_pour_manger = (TextView) findViewById(R.id.textView2);
-		results_correction_pour_manger = (TextView) findViewById(R.id.TextView08);
-		results_resucrage = (TextView) findViewById(R.id.TextView03);
+		results_insulinForFood = (TextView) findViewById(R.id.textView2);
+		results_insulinforCorrection = (TextView) findViewById(R.id.TextView08);
+		resultsForReSugaring = (TextView) findViewById(R.id.TextView03);
 		total_insuline = (TextView) findViewById(R.id.total_insulin);
 
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
@@ -79,8 +86,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		peroide.setAdapter(adapter);
 		peroide.setOnItemSelectedListener(this);
 
-		radioGroup = (RadioGroup) findViewById(R.id.radiogroup_selection);
-		radioGroup.setOnCheckedChangeListener(this);
+		operationswich = (RadioGroup) findViewById(R.id.radiogroup_selection);
+		operationswich.setOnCheckedChangeListener(this);
 		getOperation();
 	}
 
@@ -120,8 +127,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			ratio = UserPreference.getRatioSoir();
 		}
 
-		if (glycemie.getText().toString().trim() != null) {
-			String tmp = glycemie.getText().toString().trim();
+		if (foodGlucose.getText().toString().trim() != null) {
+			String tmp = foodGlucose.getText().toString().trim();
 			Log.v("MainActivity: ", tmp);
 			if (tmp == null || tmp.equals("")) {
 				tmp = "0";
@@ -129,7 +136,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			glucide = Double.parseDouble(tmp);
 		}
 
-		insulineManger = (glucide * ratio) / 10;
+		insulinForFood = (glucide * ratio) / 10;
 
 	}
 
@@ -148,8 +155,8 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		minGlycimie = UserPreference.getMinGlycemie();
 		sencibilite_resucrage = UserPreference.getSencibitlite();
 
-		if (glycimieActuelle.getText().toString().trim() != null) {
-			String tmp = glycimieActuelle.getText().toString().trim();
+		if (bloodGlucose.getText().toString().trim() != null) {
+			String tmp = bloodGlucose.getText().toString().trim();
 			Log.v("MainActivity: ", tmp);
 			if (tmp == null || tmp.equals("")) {
 				tmp = "-1";
@@ -157,21 +164,23 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			glycimie = Double.parseDouble(tmp);
 		}
 
-		if (glycimie <= maxGlycimie && glycimie >= minGlycimie && this.selectionRadio==2) {
-			insulineCorrection = 0;
+		if (glycimie <= maxGlycimie && glycimie >= minGlycimie
+				&& this.selectionRadio == 2) {
+			insulinForCorrection = 0;
 			return;
 		}
 
 		else if (glycimie > maxGlycimie) {
-			insulineCorrection = (glycimie - maxGlycimie) / (sencibilite * 100);
-		} else if (glycimie < minGlycimie && glycimie>0) {
-			insulineCorrection = (glycimie - minGlycimie) / (sencibilite * 100);
-			resucrage = (minGlycimie - glycimie)
+			insulinForCorrection = (glycimie - maxGlycimie)
+					/ (sencibilite * 100);
+		} else if (glycimie < minGlycimie && glycimie > 0) {
+			insulinForCorrection = (glycimie - minGlycimie)
+					/ (sencibilite * 100);
+			reSugaring = (minGlycimie - glycimie)
 					/ (sencibilite_resucrage * 100);
-		}
-		else {
-			insulineCorrection=0;
-			resucrage=0;
+		} else {
+			insulinForCorrection = 0;
+			reSugaring = 0;
 		}
 	}
 
@@ -180,7 +189,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		if (selectionRadio == 1) {
 			layaoutResucrage.setVisibility(View.VISIBLE);
 			layaoutInsuline.setVisibility(View.GONE);
-			results_resucrage.setText(String.valueOf(resucrage)+" g");
+			resultsForReSugaring.setText(String.valueOf(reSugaring) + " g");
 
 		} else if (selectionRadio == 2) {
 			layaoutResucrage.setVisibility(View.GONE);
@@ -190,13 +199,13 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 			df.setMinimumFractionDigits(2);
 			df.setDecimalSeparatorAlwaysShown(true);
 
-			String temp = df.format(insulineManger);
-			results_insuline_pour_manger.setText(temp);
+			String temp = df.format(insulinForFood);
+			results_insulinForFood.setText(temp);
 
-			temp = df.format(insulineCorrection);
-			results_correction_pour_manger.setText(temp);
-			
-			temp = df.format(insulineCorrection+insulineManger);
+			temp = df.format(insulinForCorrection);
+			results_insulinforCorrection.setText(temp);
+
+			temp = df.format(insulinForCorrection + insulinForFood);
 			total_insuline.setText(temp);
 
 		}
@@ -240,7 +249,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 	private void getOperation() {
 		Log.v(TAG, "getNamePrefix()");
 
-		switch (radioGroup.getCheckedRadioButtonId()) {
+		switch (operationswich.getCheckedRadioButtonId()) {
 		case -1:
 			Log.v(TAG, "Choices cleared!");
 			this.selectionRadio = -1;
@@ -281,18 +290,53 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		makeCalculOnUI();
 
 	}
-	
+
 	public void updateForResucrage() {
 		layaoutResucrage.setVisibility(View.VISIBLE);
 		layaoutInsuline.setVisibility(View.GONE);
-		glycemie.setEnabled(false);
+		foodGlucose.setEnabled(false);
 		peroide.setEnabled(false);
 	}
+
 	public void updateForInsuline() {
 		layaoutResucrage.setVisibility(View.GONE);
 		layaoutInsuline.setVisibility(View.VISIBLE);
-		glycemie.setEnabled(true);
+		foodGlucose.setEnabled(true);
 		peroide.setEnabled(true);
 	}
 
+	public void clearall(View view) {
+		foodGlucose.setText("");
+		bloodGlucose.setText("");
+		peroide.setSelection(0);
+		((BaseAdapter) peroide.getAdapter()).notifyDataSetChanged();
+	}
+
+	public void save(View view) {
+		double glycimie = 0;
+		Prelevement prelevement = new Prelevement();
+		prelevement.setPrelevementDate(new Date(System.currentTimeMillis()));
+
+		if (bloodGlucose.getText().toString().trim() != null) {
+			String tmp = bloodGlucose.getText().toString().trim();
+			Log.v("MainActivity: ", tmp);
+			if (tmp == null || tmp.equals("")) {
+				tmp = "-1";
+			}
+			glycimie = Double.parseDouble(tmp);
+		}
+		prelevement.setBloodGlucose(glycimie);
+		glycimie=0;
+		if (foodGlucose.getText().toString().trim() != null) {
+			String tmp = foodGlucose.getText().toString().trim();
+			Log.v("MainActivity: ", tmp);
+			if (tmp == null || tmp.equals("")) {
+				tmp = "0";
+			}
+			glycimie = Double.parseDouble(tmp);
+		}
+
+		
+		prelevement.setFoodGlucose(glycimie);
+	}
 }

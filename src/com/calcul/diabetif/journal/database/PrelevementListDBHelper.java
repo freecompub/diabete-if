@@ -8,29 +8,29 @@ import android.util.Log;
 
 import com.calcul.diabetif.commun.database.DatabaseTransactionOpenHelper;
 import com.calcul.diabetif.commun.database.DatabaseUtil;
-import com.calcul.diabetif.journal.model.GenericProduct;
+import com.calcul.diabetif.journal.model.Prelevement;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
-public class ShoppingListDBHelper extends DatabaseTransactionOpenHelper {
+public class PrelevementListDBHelper extends DatabaseTransactionOpenHelper {
 
-	private static final String TAG = ShoppingListDBHelper.class.getSimpleName();
+	private static final String TAG = PrelevementListDBHelper.class.getSimpleName();
 
 	// The database version
 	private static final int DB_VERSION = 1;
 	// The database file name
-	private static final String DB_NAME = "shoppinglist_ormlite.db";
+	private static final String DB_NAME = "prelevement_ormlite.db";
 
-	public ShoppingListDBHelper(Context context) {
+	public PrelevementListDBHelper(Context context) {
 		super(context, DB_NAME, null, DB_VERSION);
-		Log.v(TAG, "ShoppingListDBHelper()");
+		Log.v(TAG, "PrelevementListDBHelper()");
 	}
 
 	private static void createTables(ConnectionSource connectionSource, SQLiteDatabase db) {
 		Log.v(TAG, "createTables()");
 		try {
 			//TableUtils.createTableIfNotExists(connectionSource, SLProduct.class);
-			TableUtils.createTableIfNotExists(connectionSource, GenericProduct.class);
+			TableUtils.createTableIfNotExists(connectionSource, Prelevement.class);
 		} catch (SQLException e) {
 			DatabaseUtil.throwAndroidSQLException(TAG, e);
 		}

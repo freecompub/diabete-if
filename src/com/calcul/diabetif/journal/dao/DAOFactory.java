@@ -6,18 +6,18 @@ import android.content.Context;
 import android.util.Log;
 
 import com.calcul.diabetif.commun.database.DatabaseUtil;
-import com.calcul.diabetif.journal.database.ShoppingListDBHelper;
-import com.calcul.diabetif.journal.model.GenericProduct;
+import com.calcul.diabetif.journal.database.PrelevementListDBHelper;
+import com.calcul.diabetif.journal.model.Prelevement;
 
 public class DAOFactory {
     private static final String TAG = DAOFactory.class.getSimpleName();
     private static DAOFactory instance = null;
 
     protected Context context;
-    protected ShoppingListDBHelper shoppingListDBHelper;
+    protected PrelevementListDBHelper shoppingListDBHelper;
     
 
-    protected GenericProductDAO genericProductDAO;
+    protected PrelevementDAO prelevementDAO;
 
 
     /* Constructors */
@@ -25,7 +25,7 @@ public class DAOFactory {
         Log.v(TAG, "DAOFactory(Context context)");
         this.context = context;
 
-        this.shoppingListDBHelper = new ShoppingListDBHelper(context);
+        this.shoppingListDBHelper = new PrelevementListDBHelper(context);
     }
 
     public static synchronized DAOFactory initSingleton(Context context) {
@@ -59,15 +59,15 @@ public class DAOFactory {
 
 
 	
-	public synchronized GenericProductDAO getGenericProductDao() {
+	public synchronized PrelevementDAO getPrelevementDAO() {
 		Log.v(TAG, "getGenericProductDAO()");
-		if (genericProductDAO == null) {
+		if (prelevementDAO == null) {
 			try {
-				genericProductDAO = (GenericProductDAO) shoppingListDBHelper.getDao(GenericProduct.class);
+				prelevementDAO = (PrelevementDAO) shoppingListDBHelper.getDao(Prelevement.class);
 			} catch (SQLException e) {
 				DatabaseUtil.throwAndroidSQLException(TAG, e);
 			}
 		}
-		return genericProductDAO;
+		return prelevementDAO;
 	}
 }
