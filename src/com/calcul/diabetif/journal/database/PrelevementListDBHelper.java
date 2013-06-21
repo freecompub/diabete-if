@@ -22,14 +22,15 @@ public class PrelevementListDBHelper extends DatabaseTransactionOpenHelper {
 	private static final String DB_NAME = "prelevement_ormlite.db";
 
 	public PrelevementListDBHelper(Context context) {
+		
 		super(context, DB_NAME, null, DB_VERSION);
 		Log.v(TAG, "PrelevementListDBHelper()");
+		
 	}
 
 	private static void createTables(ConnectionSource connectionSource, SQLiteDatabase db) {
 		Log.v(TAG, "createTables()");
 		try {
-			//TableUtils.createTableIfNotExists(connectionSource, SLProduct.class);
 			TableUtils.createTableIfNotExists(connectionSource, Prelevement.class);
 		} catch (SQLException e) {
 			DatabaseUtil.throwAndroidSQLException(TAG, e);

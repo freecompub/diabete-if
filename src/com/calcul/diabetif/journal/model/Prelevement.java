@@ -1,7 +1,9 @@
 package com.calcul.diabetif.journal.model;
 
 
-import java.sql.Date;
+
+
+import java.util.Date;
 
 import com.calcul.diabetif.journal.dao.PrelevementDAOImpl;
 import com.j256.ormlite.field.DataType;
@@ -22,7 +24,7 @@ public class Prelevement {
 
 	@DatabaseField(columnName = FIELD_ID, generatedId = true)
 	private Long id;
-	@DatabaseField(columnName = FIELD_DATE, dataType = DataType.DATE)
+	@DatabaseField(columnName = FIELD_DATE, dataType = DataType.DATE_LONG)
 	private Date prelevementDate;
 	@DatabaseField(columnName = FIELD_BLOOD_GLUCOSE, dataType = DataType.DOUBLE)
 	private double bloodGlucose;

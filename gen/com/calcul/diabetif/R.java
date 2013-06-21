@@ -131,12 +131,13 @@ public final class R {
         public static final int unnamed=0x7f02001f;
     }
     public static final class id {
-        public static final int EditText_minG=0x7f0b0027;
-        public static final int EditText_ratio_matin=0x7f0b001f;
-        public static final int EditText_ratio_midi=0x7f0b0021;
-        public static final int EditText_ratio_soir=0x7f0b0022;
-        public static final int EditText_sencibilite_insu_matin=0x7f0b0025;
-        public static final int EditText_sencibilite_insul_soir=0x7f0b0026;
+        public static final int EditText01=0x7f0b001d;
+        public static final int EditText_minG=0x7f0b0038;
+        public static final int EditText_ratio_matin=0x7f0b0030;
+        public static final int EditText_ratio_midi=0x7f0b0032;
+        public static final int EditText_ratio_soir=0x7f0b0033;
+        public static final int EditText_sencibilite_insu_matin=0x7f0b0036;
+        public static final int EditText_sencibilite_insul_soir=0x7f0b0037;
         public static final int LinearLayout2=0x7f0b0001;
         public static final int LinearLayout3=0x7f0b0006;
         public static final int LinearLayout4=0x7f0b000a;
@@ -150,24 +151,40 @@ public final class R {
         public static final int TextView06=0x7f0b0016;
         public static final int TextView07=0x7f0b0014;
         public static final int TextView08=0x7f0b0015;
-        public static final int TextView_ratio_midi=0x7f0b0020;
+        public static final int TextView_ratio_midi=0x7f0b0031;
+        public static final int button0=0x7f0b0029;
         public static final int button1=0x7f0b001c;
-        public static final int button_save=0x7f0b0029;
+        public static final int button2=0x7f0b001e;
+        public static final int button3=0x7f0b001f;
+        public static final int button4=0x7f0b0021;
+        public static final int button5=0x7f0b0022;
+        public static final int button6=0x7f0b0023;
+        public static final int button7=0x7f0b0025;
+        public static final int button8=0x7f0b0026;
+        public static final int button9=0x7f0b0027;
+        public static final int buttonC=0x7f0b002b;
+        public static final int buttonDivision=0x7f0b002c;
+        public static final int buttonEgal=0x7f0b002d;
+        public static final int buttonMoins=0x7f0b0024;
+        public static final int buttonMultiplier=0x7f0b0028;
+        public static final int buttonPlus=0x7f0b0020;
+        public static final int buttonPoint=0x7f0b002a;
+        public static final int button_save=0x7f0b003a;
         public static final int clear_button=0x7f0b001b;
-        public static final int edit_sencibilite=0x7f0b0024;
-        public static final int eshop_eshoptab_imageview_icon=0x7f0b001d;
-        public static final int eshop_eshoptab_textview_title=0x7f0b001e;
+        public static final int edit_sencibilite=0x7f0b0035;
+        public static final int eshop_eshoptab_imageview_icon=0x7f0b002e;
+        public static final int eshop_eshoptab_textview_title=0x7f0b002f;
         public static final int glucide=0x7f0b000c;
         public static final int glycemie=0x7f0b0007;
         public static final int layout_insuline=0x7f0b0011;
         public static final int layout_resucrage=0x7f0b0018;
-        public static final int max_glyf=0x7f0b0028;
-        public static final int menu_computing=0x7f0b002b;
-        public static final int menu_settings=0x7f0b002a;
+        public static final int max_glyf=0x7f0b0039;
+        public static final int menu_computing=0x7f0b003c;
+        public static final int menu_settings=0x7f0b003b;
         public static final int radioButton_correction=0x7f0b0004;
         public static final int radioButton_manger=0x7f0b0005;
         public static final int radiogroup_selection=0x7f0b0003;
-        public static final int ratiom=0x7f0b0023;
+        public static final int ratiom=0x7f0b0034;
         public static final int spinner1=0x7f0b0010;
         public static final int textView1=0x7f0b0009;
         public static final int textView2=0x7f0b0017;
@@ -181,9 +198,10 @@ public final class R {
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int eshop_eshoptab=0x7f030001;
-        public static final int eshop_eshoptab_indicator=0x7f030002;
-        public static final int paramettre_activity=0x7f030003;
+        public static final int calculator_view=0x7f030001;
+        public static final int eshop_eshoptab=0x7f030002;
+        public static final int eshop_eshoptab_indicator=0x7f030003;
+        public static final int paramettre_activity=0x7f030004;
     }
     public static final class menu {
         public static final int activity_main=0x7f0a0000;

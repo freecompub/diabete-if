@@ -14,7 +14,7 @@ public class DAOFactory {
     private static DAOFactory instance = null;
 
     protected Context context;
-    protected PrelevementListDBHelper shoppingListDBHelper;
+    protected PrelevementListDBHelper prelevementListDBHelper;
     
 
     protected PrelevementDAO prelevementDAO;
@@ -25,7 +25,7 @@ public class DAOFactory {
         Log.v(TAG, "DAOFactory(Context context)");
         this.context = context;
 
-        this.shoppingListDBHelper = new PrelevementListDBHelper(context);
+        this.prelevementListDBHelper = new PrelevementListDBHelper(context);
     }
 
     public static synchronized DAOFactory initSingleton(Context context) {
@@ -44,26 +44,26 @@ public class DAOFactory {
     /* Transaction-oriented methods */
     public synchronized void beginTransaction() {
 
-    	shoppingListDBHelper.beginTransaction();
+    	prelevementListDBHelper.beginTransaction();
     }
 
     public synchronized void commitTransaction() {
 
-    	shoppingListDBHelper.commit();
+    	prelevementListDBHelper.commit();
     }
 
     public synchronized void rollbackTransaction() {
 
-    	shoppingListDBHelper.rollBack();
+    	prelevementListDBHelper.rollBack();
     }
 
 
 	
 	public synchronized PrelevementDAO getPrelevementDAO() {
-		Log.v(TAG, "getGenericProductDAO()");
+		Log.v(TAG, "getPrelevementDAO()");
 		if (prelevementDAO == null) {
 			try {
-				prelevementDAO = (PrelevementDAO) shoppingListDBHelper.getDao(Prelevement.class);
+				prelevementDAO = (PrelevementDAO) prelevementListDBHelper.getDao(Prelevement.class);
 			} catch (SQLException e) {
 				DatabaseUtil.throwAndroidSQLException(TAG, e);
 			}
