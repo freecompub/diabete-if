@@ -3,6 +3,7 @@ package com.calcul.diabetif.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 public class MainScreenGroupActivity extends TabGroupActivity {
 	 private static final String TAG = CalculatorGroupActivity.class.getSimpleName();
@@ -14,6 +15,8 @@ public class MainScreenGroupActivity extends TabGroupActivity {
       startChildActivity("MainActivity", intent);
 	}
 
-	
+	public void save(View view) {
+		Log.d(TAG, "save");
+	}
 	
 }

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,6 +51,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+	//	View viewToLoad = LayoutInflater.from(this.getParent()).inflate(R.layout.activity_main, null);
 		setContentView(R.layout.activity_main);
 		UserPreference.init(getApplicationContext());
 		prelevementManager = PrelevementManager.manager();
@@ -79,7 +81,7 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 		total_insuline = (TextView) findViewById(R.id.total_insulin);
 
 		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-				this, R.array.period_array,
+				getParent(), R.array.period_array,
 				android.R.layout.simple_spinner_item);
 		// Specify the layout to use when the list of choices appears
 		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

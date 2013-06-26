@@ -130,7 +130,7 @@ public class IfTabActivity extends TabActivity {
 			addTab(String.valueOf(TAB_MAIN_SCREEN),
 					getString(R.string.eshop_eshoptab_product),
 					R.drawable.eshop_eshoptab_tabbar_product,
-					MainScreenGroupActivity.class);
+					MainActivity.class);
 
 			addTab(String.valueOf(TAB_SETTING),
 					getString(R.string.eshop_eshoptab_department),
