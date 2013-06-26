@@ -179,12 +179,16 @@ public final class R {
         public static final int layout_insuline=0x7f0b0011;
         public static final int layout_resucrage=0x7f0b0018;
         public static final int max_glyf=0x7f0b0039;
-        public static final int menu_computing=0x7f0b003c;
-        public static final int menu_settings=0x7f0b003b;
+        public static final int menu_computing=0x7f0b0040;
+        public static final int menu_settings=0x7f0b003f;
+        public static final int objectif_glycemique=0x7f0b003e;
         public static final int radioButton_correction=0x7f0b0004;
         public static final int radioButton_manger=0x7f0b0005;
         public static final int radiogroup_selection=0x7f0b0003;
+        public static final int ratio=0x7f0b003b;
         public static final int ratiom=0x7f0b0034;
+        public static final int senciblilite_resucrage=0x7f0b003c;
+        public static final int senciblite_insuline=0x7f0b003d;
         public static final int spinner1=0x7f0b0010;
         public static final int textView1=0x7f0b0009;
         public static final int textView2=0x7f0b0017;
@@ -202,6 +206,7 @@ public final class R {
         public static final int eshop_eshoptab=0x7f030002;
         public static final int eshop_eshoptab_indicator=0x7f030003;
         public static final int paramettre_activity=0x7f030004;
+        public static final int setting_cell_view=0x7f030005;
     }
     public static final class menu {
         public static final int activity_main=0x7f0a0000;

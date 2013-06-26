@@ -21,7 +21,9 @@ public class Prelevement {
 	public static final String FIELD_FOOD_GLUCOSE= "foodGlucose";
 	public static final String FIELD_INSULIN_FOR_FOOD= "insulinForFood";
 	public static final String FIELD_INSULIN_FOR_CORRECTION= "insulinForCorection";
-
+	public static final String FIELD_AFTER_MEAL= "afterMeal";
+	public static final String FIELD_BEFORE_MEAL= "beforeMeal";
+	
 	@DatabaseField(columnName = FIELD_ID, generatedId = true)
 	private Long id;
 	@DatabaseField(columnName = FIELD_DATE, dataType = DataType.DATE_LONG)
@@ -37,6 +39,12 @@ public class Prelevement {
 	
 	@DatabaseField(columnName = FIELD_INSULIN_FOR_CORRECTION, dataType = DataType.DOUBLE)
 	private double insulinForCorection;
+	
+	@DatabaseField(columnName = FIELD_AFTER_MEAL)
+	private boolean afterMeal;
+	
+	@DatabaseField(columnName = FIELD_BEFORE_MEAL)
+	private boolean beforeMeal;
 	
 	public Long getId() {
 		return id;
@@ -86,7 +94,21 @@ public class Prelevement {
 		this.insulinForCorection = insulinForCorection;
 	}
 
-	
+	public boolean isAfterMeal() {
+		return afterMeal;
+	}
+
+	public void setAfterMeal(boolean afterMeal) {
+		this.afterMeal = afterMeal;
+	}
+
+	public boolean isBeforeMeal() {
+		return beforeMeal;
+	}
+
+	public void setBeforeMeal(boolean beforeMeal) {
+		this.beforeMeal = beforeMeal;
+	}
 
 	
 }

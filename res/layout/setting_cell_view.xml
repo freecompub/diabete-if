@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <LinearLayout
+        android:id="@+id/ratio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp" >
+
+		<TextView
+			android:id="@+id/TextView02"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:text="@string/ratio_matin" />
+
+		<EditText
+			android:id="@+id/EditText_ratio_matin"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="65dp"
+			android:layout_marginRight="10dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="number|numberSigned|numberDecimal" />
+	</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/senciblilite_resucrage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ratio"
+        android:layout_marginTop="5dp" >
+
+		<TextView
+			android:id="@+id/ratiom"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:text="@string/sencibilit_resucrage" />
+
+		<EditText
+			android:id="@+id/edit_sencibilite"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="15dp"
+			android:layout_marginRight="10dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="numberDecimal" />
+	</LinearLayout>
+
+<LinearLayout
+    android:id="@+id/senciblite_insuline"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/senciblilite_resucrage"
+    android:layout_marginTop="5dp" >
+
+		<TextView
+			android:id="@+id/TextView04"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:text="@string/sencibilit_matin" />
+
+		<EditText
+			android:id="@+id/EditText_sencibilite_insu_matin"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="40dp"
+			android:layout_marginRight="10dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="numberDecimal" />
+	</LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/objectif_glycemique"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/senciblite_insuline"
+        android:layout_marginTop="5dp" >
+
+		<TextView
+			android:id="@+id/TextView01"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="5dp"
+			android:text="@string/objectife_glecymeque" />
+
+		<EditText
+			android:id="@+id/EditText_minG"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10dp"
+			android:layout_marginRight="5dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="numberDecimal" />
+
+		<TextView
+			android:id="@+id/textView1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="5dp"
+			android:text="@string/_a" />
+
+		<EditText
+			android:id="@+id/max_glyf"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_marginRight="10dp"
+			android:layout_weight="1"
+			android:background="@drawable/account_text_bg"
+			android:ems="10"
+			android:inputType="number" >
+
+		</EditText>
+	</LinearLayout>
+</RelativeLayout>

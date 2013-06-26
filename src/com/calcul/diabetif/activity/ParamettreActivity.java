@@ -74,8 +74,6 @@ public class ParamettreActivity extends Activity {
 				.getText().toString().trim()));
 		UserPreference.setSencibitliteInsulineSoir(Float.parseFloat(sencibilite_insuline_soir
 				.getText().toString().trim()));
-		// Intent k = new Intent(this, MainActivity.class);
-		// startActivity(k);
-		finish();
+
 	}
 }
