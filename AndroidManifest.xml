@@ -29,7 +29,8 @@
 		<activity android:name=".activity.CalculatorGroupActivity" />
 		<activity android:name=".activity.GraphicActivity" />
 		<activity android:name=".activity.GraphicGroupActivity" />
-		<activity android:name=".activity.MainActivity" />
+		<activity android:name=".activity.MainActivity"
+		    android:windowSoftInputMode="adjustResize"/>
 		<activity android:name=".activity.MainScreenGroupActivity" />
 		<activity android:name=".activity.SettingActivity" />
 		<activity android:name=".activity.SettingGroupActivity" />

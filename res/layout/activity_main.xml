@@ -105,7 +105,8 @@
             android:background="@drawable/account_text_bg"
             android:ems="10"
             android:inputType="number"
-            android:maxLength="3" />
+            android:maxLength="3"
+            android:imeOptions="actionSend|flagNoEnterAction" />
 
         <TextView
             android:id="@+id/TextView04"
@@ -270,6 +271,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:onClick="clearall"
             android:text="Clear" />
 
@@ -278,6 +280,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+             android:layout_alignParentBottom="true"
             android:onClick="save"
             android:text="Save" />
 

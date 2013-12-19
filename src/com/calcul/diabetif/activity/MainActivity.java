@@ -52,7 +52,11 @@ public class MainActivity extends Activity implements OnItemSelectedListener,
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 	//	View viewToLoad = LayoutInflater.from(this.getParent()).inflate(R.layout.activity_main, null);
-		setContentView(R.layout.activity_main);
+		//setContentView(R.layout.activity_main);
+		
+		View viewToLoad = LayoutInflater.from(this.getParent()).inflate(R.layout.activity_main, null);
+		this.setContentView(viewToLoad);
+		
 		UserPreference.init(getApplicationContext());
 		prelevementManager = PrelevementManager.manager();
 		initUI();

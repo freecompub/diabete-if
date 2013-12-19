@@ -1,8 +1,6 @@
 package com.calcul.diabetif.activity;
 
 import android.app.TabActivity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -12,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TabHost;
 import android.widget.TabHost.OnTabChangeListener;
@@ -30,7 +27,6 @@ public class IfTabActivity extends TabActivity {
 	public static final int TAB_MAIN_SCREEN = 0;
 	public static final int TAB_SETTING = 1;
 	public static final int TAB_CALCULATOR = 2;
-	// public static final int TAB_SHOPPING_LIST = 3;
 	public static final int TAB_GRAPHIC = 3;
 
 	public static final String BROADCAST_BASKET_CHANGED = "com.carrefour.android.app.eshop.intent.action.BASKET_CHANGED";
@@ -130,7 +126,7 @@ public class IfTabActivity extends TabActivity {
 			addTab(String.valueOf(TAB_MAIN_SCREEN),
 					getString(R.string.eshop_eshoptab_product),
 					R.drawable.eshop_eshoptab_tabbar_product,
-					MainActivity.class);
+					MainScreenGroupActivity.class);
 
 			addTab(String.valueOf(TAB_SETTING),
 					getString(R.string.eshop_eshoptab_department),
