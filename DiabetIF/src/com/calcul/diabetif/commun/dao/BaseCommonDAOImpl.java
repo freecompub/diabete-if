@@ -1,10 +1,5 @@
 package com.calcul.diabetif.commun.dao;
 
-import java.sql.SQLException;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import com.calcul.diabetif.commun.database.DatabaseUtil;
 import com.j256.ormlite.dao.BaseDaoImpl;
 import com.j256.ormlite.dao.CloseableIterator;
@@ -20,6 +15,11 @@ import com.j256.ormlite.stmt.PreparedUpdate;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.support.DatabaseResults;
 import com.j256.ormlite.table.DatabaseTableConfig;
+
+import java.sql.SQLException;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
 
 public class BaseCommonDAOImpl<T, ID> extends BaseDaoImpl<T, ID> implements BaseCommonDAO<T, ID> {
     private static final String TAG = BaseCommonDAOImpl.class.getSimpleName();
@@ -72,7 +72,7 @@ public class BaseCommonDAOImpl<T, ID> extends BaseDaoImpl<T, ID> implements Base
         List<T> result = null;
         try {
             result = queryForAll();
-        } catch (SQLException e) {        	
+        } catch (SQLException e) {
             DatabaseUtil.throwAndroidSQLException(TAG, e);
         }
         return result;
@@ -307,7 +307,7 @@ public class BaseCommonDAOImpl<T, ID> extends BaseDaoImpl<T, ID> implements Base
     }
 
     public <GR> GenericRawResults<GR> queryRawOrFail(String query, RawRowMapper<GR> mapper,
-            String... arguments) {
+                                                     String... arguments) {
         GenericRawResults<GR> result = null;
         try {
             result = queryRaw(query, mapper, arguments);
@@ -318,7 +318,7 @@ public class BaseCommonDAOImpl<T, ID> extends BaseDaoImpl<T, ID> implements Base
     }
 
     public GenericRawResults<Object[]> queryRawOrFail(String query, DataType[] columnTypes,
-            String... arguments) {
+                                                      String... arguments) {
         GenericRawResults<Object[]> result = null;
         try {
             result = queryRaw(query, columnTypes, arguments);

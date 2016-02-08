@@ -58,9 +58,8 @@ public class LoadingImageView extends ViewSwitcher {
     /**
      * Often you have resources which usually have an image, but some don't. For these cases, use
      * this method to supply a placeholder drawable which will be loaded instead of a web image.
-     * 
-     * @param imageResourceId
-     *            the resource of the placeholder image drawable
+     *
+     * @param imageResourceId the resource of the placeholder image drawable
      */
     public void setNoImageDrawable(int imageResourceId) {
         imageView.setImageDrawable(getContext().getResources().getDrawable(imageResourceId));
@@ -73,10 +72,10 @@ public class LoadingImageView extends ViewSwitcher {
 
     public void setImageDrawable(Drawable drawable) {
         imageView.setImageDrawable(drawable);
-        if(drawable instanceof TransitionDrawable){
-            TransitionDrawable transition = (TransitionDrawable)drawable;
-            BitmapDrawable bitmap = (BitmapDrawable)transition.getDrawable(1);
-            if(deleagate!=null){
+        if (drawable instanceof TransitionDrawable) {
+            TransitionDrawable transition = (TransitionDrawable) drawable;
+            BitmapDrawable bitmap = (BitmapDrawable) transition.getDrawable(1);
+            if (deleagate != null) {
                 deleagate.afterSetImageBitmap(imageView, bitmap.getBitmap());
             }
         }
@@ -85,8 +84,8 @@ public class LoadingImageView extends ViewSwitcher {
 
     public void setImageBitmap(Bitmap bitmap) {
         imageView.setImageBitmap(bitmap);
-        Log.d("LoadingImageView", "this.deleagate::"+this.deleagate);
-        if(deleagate!=null){
+        Log.d("LoadingImageView", "this.deleagate::" + this.deleagate);
+        if (deleagate != null) {
             deleagate.afterSetImageBitmap(imageView, bitmap);
         }
         setDisplayedChild(1);
@@ -105,17 +104,17 @@ public class LoadingImageView extends ViewSwitcher {
         super.reset();
         this.setDisplayedChild(0);
     }
-    
+
     public void setScaleType(ScaleType scaleType) {
-		imageView.setScaleType(scaleType);
-	}
-    
+        imageView.setScaleType(scaleType);
+    }
+
     public void setDeleagate(LoadingImageViewDeleagate deleagate) {
-		this.deleagate = deleagate;
-	}
-    
-    public static class LoadingImageViewDeleagate{    	
-    	public void afterSetImageBitmap(ImageView imageView,Bitmap bitmap) {
+        this.deleagate = deleagate;
+    }
+
+    public static class LoadingImageViewDeleagate {
+        public void afterSetImageBitmap(ImageView imageView, Bitmap bitmap) {
             throw new UnsupportedOperationException("Manager delegate function is not override");
         }
     }

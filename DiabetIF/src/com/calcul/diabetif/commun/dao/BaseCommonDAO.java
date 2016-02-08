@@ -1,9 +1,5 @@
 package com.calcul.diabetif.commun.dao;
 
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-
 import com.j256.ormlite.dao.CloseableIterator;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.ForeignCollection;
@@ -17,90 +13,94 @@ import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.PreparedUpdate;
 import com.j256.ormlite.support.DatabaseResults;
 
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
 public interface BaseCommonDAO<T, ID> extends Dao<T, ID> {
-    public void initializeOrFail();
-    
-    public T queryForIdOrFail(ID id);
+    void initializeOrFail();
 
-    public T queryForFirstOrFail(PreparedQuery<T> preparedQuery);
+    T queryForIdOrFail(ID id);
 
-    public List<T> queryForAllOrFail();
+    T queryForFirstOrFail(PreparedQuery<T> preparedQuery);
 
-    public List<T> queryForEqOrFail(String fieldName, Object value);
+    List<T> queryForAllOrFail();
 
-    public List<T> queryOrFail(PreparedQuery<T> preparedQuery);
+    List<T> queryForEqOrFail(String fieldName, Object value);
 
-    public List<T> queryForMatchingOrFail(T matchObj);
+    List<T> queryOrFail(PreparedQuery<T> preparedQuery);
 
-    public List<T> queryForMatchingArgsOrFail(T matchObj);
+    List<T> queryForMatchingOrFail(T matchObj);
 
-    public List<T> queryForFieldValuesOrFail(Map<String, Object> fieldValues);
+    List<T> queryForMatchingArgsOrFail(T matchObj);
 
-    public List<T> queryForFieldValuesArgsOrFail(Map<String, Object> fieldValues);
+    List<T> queryForFieldValuesOrFail(Map<String, Object> fieldValues);
 
-    public T queryForSameIdOrFail(T data);
+    List<T> queryForFieldValuesArgsOrFail(Map<String, Object> fieldValues);
 
-    public int createOrFail(T data);
+    T queryForSameIdOrFail(T data);
 
-    public T createIfNotExistsOrFail(T data);
+    int createOrFail(T data);
 
-    public CreateOrUpdateStatus createOrUpdateOrFail(T data);
+    T createIfNotExistsOrFail(T data);
 
-    public int updateOrFail(T data);
+    CreateOrUpdateStatus createOrUpdateOrFail(T data);
 
-    public int updateIdOrFail(T data, ID newId);
+    int updateOrFail(T data);
 
-    public int updateOrFail(PreparedUpdate<T> preparedUpdate);
+    int updateIdOrFail(T data, ID newId);
 
-    public int refreshOrFail(T data);
+    int updateOrFail(PreparedUpdate<T> preparedUpdate);
 
-    public int deleteOrFail(T data);
+    int refreshOrFail(T data);
 
-    public int deleteByIdOrFail(ID id);
+    int deleteOrFail(T data);
 
-    public int deleteOrFail(Collection<T> datas);
+    int deleteByIdOrFail(ID id);
 
-    public int deleteIdsOrFail(Collection<ID> ids);
+    int deleteOrFail(Collection<T> datas);
 
-    public int deleteOrFail(PreparedDelete<T> preparedDelete);
+    int deleteIdsOrFail(Collection<ID> ids);
 
-    public void closeLastIteratorOrFail();
+    int deleteOrFail(PreparedDelete<T> preparedDelete);
 
-    public CloseableIterator<T> iteratorOrFail(PreparedQuery<T> preparedQuery); 
+    void closeLastIteratorOrFail();
 
-    public CloseableIterator<T> iteratorOrFail(PreparedQuery<T> preparedQuery, int resultFlags);
+    CloseableIterator<T> iteratorOrFail(PreparedQuery<T> preparedQuery);
+
+    CloseableIterator<T> iteratorOrFail(PreparedQuery<T> preparedQuery, int resultFlags);
 
 
-    public GenericRawResults<String[]> queryRawOrFail(String query, String... arguments);
+    GenericRawResults<String[]> queryRawOrFail(String query, String... arguments);
 
-    public <GR> GenericRawResults<GR> queryRawOrFail(String query, RawRowMapper<GR> mapper,
-            String... arguments);
+    <GR> GenericRawResults<GR> queryRawOrFail(String query, RawRowMapper<GR> mapper,
+                                              String... arguments);
 
-    public GenericRawResults<Object[]> queryRawOrFail(String query, DataType[] columnTypes,
-            String... arguments);
+    GenericRawResults<Object[]> queryRawOrFail(String query, DataType[] columnTypes,
+                                               String... arguments);
 
-    public int executeRawOrFail(String statement, String... arguments);
-    
-    public int updateRawOrFail(String statement, String... arguments);
+    int executeRawOrFail(String statement, String... arguments);
 
-    public boolean objectsEqualOrFail(T data1, T data2);
+    int updateRawOrFail(String statement, String... arguments);
 
-    public ID extractIdOrFail(T data);
+    boolean objectsEqualOrFail(T data1, T data2);
 
-    public boolean isTableExistsOrFail();
+    ID extractIdOrFail(T data);
 
-    public long countOfOrFail();
+    boolean isTableExistsOrFail();
 
-    public long countOfOrFail(PreparedQuery<T> preparedQuery);
+    long countOfOrFail();
 
-    public <FT> ForeignCollection<FT> getEmptyForeignCollectionOrFail(String fieldName);
+    long countOfOrFail(PreparedQuery<T> preparedQuery);
 
-    public void setObjectCacheOrFail(boolean enabled);
+    <FT> ForeignCollection<FT> getEmptyForeignCollectionOrFail(String fieldName);
 
-    public void setObjectCacheOrFail(ObjectCache objectCache);
+    void setObjectCacheOrFail(boolean enabled);
 
-    public T mapSelectStarRowOrFail(DatabaseResults results);
+    void setObjectCacheOrFail(ObjectCache objectCache);
 
-    public GenericRowMapper<T> getSelectStarRowMapperOrFail();
+    T mapSelectStarRowOrFail(DatabaseResults results);
+
+    GenericRowMapper<T> getSelectStarRowMapperOrFail();
 
 }

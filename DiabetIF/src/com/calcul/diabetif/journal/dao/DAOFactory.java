@@ -1,7 +1,5 @@
 package com.calcul.diabetif.journal.dao;
 
-import java.sql.SQLException;
-
 import android.content.Context;
 import android.util.Log;
 
@@ -9,13 +7,15 @@ import com.calcul.diabetif.commun.database.DatabaseUtil;
 import com.calcul.diabetif.journal.database.PrelevementListDBHelper;
 import com.calcul.diabetif.journal.model.Prelevement;
 
+import java.sql.SQLException;
+
 public class DAOFactory {
     private static final String TAG = DAOFactory.class.getSimpleName();
     private static DAOFactory instance = null;
 
     protected Context context;
     protected PrelevementListDBHelper prelevementListDBHelper;
-    
+
 
     protected PrelevementDAO prelevementDAO;
 
@@ -44,30 +44,29 @@ public class DAOFactory {
     /* Transaction-oriented methods */
     public synchronized void beginTransaction() {
 
-    	prelevementListDBHelper.beginTransaction();
+        prelevementListDBHelper.beginTransaction();
     }
 
     public synchronized void commitTransaction() {
 
-    	prelevementListDBHelper.commit();
+        prelevementListDBHelper.commit();
     }
 
     public synchronized void rollbackTransaction() {
 
-    	prelevementListDBHelper.rollBack();
+        prelevementListDBHelper.rollBack();
     }
 
 
-	
-	public synchronized PrelevementDAO getPrelevementDAO() {
-		Log.v(TAG, "getPrelevementDAO()");
-		if (prelevementDAO == null) {
-			try {
-				prelevementDAO = (PrelevementDAO) prelevementListDBHelper.getDao(Prelevement.class);
-			} catch (SQLException e) {
-				DatabaseUtil.throwAndroidSQLException(TAG, e);
-			}
-		}
-		return prelevementDAO;
-	}
+    public synchronized PrelevementDAO getPrelevementDAO() {
+        Log.v(TAG, "getPrelevementDAO()");
+        if (prelevementDAO == null) {
+            try {
+                prelevementDAO = prelevementListDBHelper.getDao(Prelevement.class);
+            } catch (SQLException e) {
+                DatabaseUtil.throwAndroidSQLException(TAG, e);
+            }
+        }
+        return prelevementDAO;
+    }
 }

@@ -5,7 +5,7 @@
     <color name="eshop_color_dark">#000000</color>
     <color name="eshop_color_transparent">#10ffffff</color>
     <color name="eshop_color_green">#8CBD00</color>
-	<!-- <color name="eshop_color_green_dark">#778f2a</color> -->
+    <!-- <color name="eshop_color_green_dark">#778f2a</color> -->
 
     <color name="eshop_color_grey">#999999</color>
     <color name="eshop_color_dark_grey">#555555</color>
@@ -16,7 +16,7 @@
     <color name="eshop_color_black">#000000</color>
     <color name="eshop_color_purple">#531D41</color>
     <color name="eshop_color_smoke_grey">#9a9285</color>
-	<color name="eshop_color_grey_overlay">#60000000</color>
+    <color name="eshop_color_grey_overlay">#60000000</color>
     <color name="eshop_color_yellow">#ED9100</color>
     <color name="eshop_color_red">#FF0000</color>
 </resources>

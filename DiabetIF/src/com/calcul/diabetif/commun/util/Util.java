@@ -16,8 +16,6 @@
 
 package com.calcul.diabetif.commun.util;
 
-import java.io.File;
-
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -28,6 +26,8 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 
+import java.io.File;
+
 /**
  * Class containing some static utility methods.
  */
@@ -36,7 +36,7 @@ public class Util {
     public static final int HONEYCOMB_VERSION = 11;
 
     private Util() {
-    };
+    }
 
     /**
      * Workaround for bug pre-Froyo, see here for more info:
@@ -51,7 +51,7 @@ public class Util {
 
     /**
      * Get the size in bytes of a bitmap.
-     * 
+     *
      * @param bitmap
      * @return size in bytes
      */
@@ -61,7 +61,7 @@ public class Util {
 
     /**
      * Check if external storage is built-in or removable.
-     * 
+     *
      * @return True if external storage is removable (like an SD card), false otherwise.
      */
     public static boolean isExternalStorageRemovable() {
@@ -70,9 +70,8 @@ public class Util {
 
     /**
      * Get the external app cache directory.
-     * 
-     * @param context
-     *            The context to use
+     *
+     * @param context The context to use
      * @return The external cache dir
      */
     public static File getExternalCacheDir(Context context) {
@@ -87,9 +86,8 @@ public class Util {
 
     /**
      * Check how much usable space is available at a given path.
-     * 
-     * @param path
-     *            The path to check
+     *
+     * @param path The path to check
      * @return The space available in bytes
      */
     public static long getUsableSpace(File path) {
@@ -99,7 +97,7 @@ public class Util {
 
     /**
      * Get the memory class of this device (approx. per-app memory limit)
-     * 
+     *
      * @param context
      * @return
      */
@@ -110,7 +108,7 @@ public class Util {
     /**
      * Check if OS version has a http URLConnection bug. See here for more information:
      * http://android-developers.blogspot.com/2011/09/androids-http-clients.html
-     * 
+     *
      * @return
      */
     public static boolean hasHttpConnectionBug() {
@@ -119,7 +117,7 @@ public class Util {
 
     /**
      * Check if OS version has built-in external cache dir method.
-     * 
+     *
      * @return
      */
     public static boolean hasExternalCacheDir() {
@@ -128,7 +126,7 @@ public class Util {
 
     /**
      * Check if ActionBar is available.
-     * 
+     *
      * @return
      */
     public static boolean hasActionBar() {
@@ -137,10 +135,9 @@ public class Util {
 
     /**
      * Get Application name/label as shown in launcher
-     * 
-     * @param Context
-     *            a context.
-     * */
+     *
+     * @param Context a context.
+     */
     public static String getApplicationName(Context context) {
         final PackageManager pm = context.getPackageManager();
         ApplicationInfo ai;

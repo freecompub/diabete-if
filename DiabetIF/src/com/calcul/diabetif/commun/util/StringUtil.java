@@ -5,9 +5,8 @@ import java.util.List;
 
 /**
  * String Utilities
- * 
+ *
  * @author saravuth
- * 
  */
 public class StringUtil {
 

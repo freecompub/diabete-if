@@ -8,9 +8,8 @@ import android.view.View;
 
 /**
  * Helper class for building alert dialog with OK/Cancel button
- * 
+ *
  * @author saravuth
- * 
  */
 public class DialogBuilder {
 
@@ -19,6 +18,7 @@ public class DialogBuilder {
 
     /**
      * Build and Show alert dialog with OK/Cancel button
+     *
      * @param context
      * @param title
      * @param contentView
@@ -27,7 +27,7 @@ public class DialogBuilder {
      * @return
      */
     public static AlertDialog show(Context context, int titleId, View contentView, DialogInterface.OnClickListener okClickListener,
-            DialogInterface.OnClickListener cancelClickListener) {
+                                   DialogInterface.OnClickListener cancelClickListener) {
         Log.v(TAG, "show(Context context, int titleId, View contentView, DialogInterface.OnClickListener okClickListener, DialogInterface.OnClickListener cancelClickListener)");
         init(context);
         /*

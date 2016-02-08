@@ -16,8 +16,6 @@
 
 package com.calcul.diabetif.commun.util;
 
-import java.io.File;
-
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ApplicationInfo;
@@ -28,13 +26,17 @@ import android.os.Build;
 import android.os.Environment;
 import android.os.StatFs;
 
+import java.io.File;
+
 /**
  * Class containing some static utility methods.
  */
 public class Utils {
     public static final int IO_BUFFER_SIZE = 8 * 1024;
     public static final int HONEYCOMB_VERSION = 11;
-    private Utils() {};
+
+    private Utils() {
+    }
 
     /**
      * Workaround for bug pre-Froyo, see here for more info:
@@ -49,6 +51,7 @@ public class Utils {
 
     /**
      * Get the size in bytes of a bitmap.
+     *
      * @param bitmap
      * @return size in bytes
      */
@@ -60,7 +63,7 @@ public class Utils {
      * Check if external storage is built-in or removable.
      *
      * @return True if external storage is removable (like an SD card), false
-     *         otherwise.
+     * otherwise.
      */
     public static boolean isExternalStorageRemovable() {
         return true;
@@ -131,12 +134,12 @@ public class Utils {
     public static boolean hasActionBar() {
         return Build.VERSION.SDK_INT >= HONEYCOMB_VERSION;
     }
+
     /**
      * Get Application name/label as shown in launcher
-     * 
-     * @param Context
-     *            a context.
-     * */
+     *
+     * @param Context a context.
+     */
     public static String getApplicationName(Context context) {
         final PackageManager pm = context.getPackageManager();
         ApplicationInfo ai;

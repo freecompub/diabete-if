@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
         android:left="@dimen/eshop_eshoptab_space"
         android:right="@dimen/eshop_eshoptab_space">
 
-        <shape android:shape="rectangle" >
+        <shape android:shape="rectangle">
 
             <gradient
                 android:angle="-90"
@@ -19,7 +19,7 @@
         android:bottom="26sp"
         android:top="1sp">
 
-        <shape android:shape="rectangle" >
+        <shape android:shape="rectangle">
 
             <solid android:color="@color/eshop_color_transparent" />
         </shape>
@@ -31,7 +31,7 @@
         android:right="2sp"
         android:top="3sp">
 
-        <shape android:shape="rectangle" >
+        <shape android:shape="rectangle">
 
             <corners
                 android:bottomLeftRadius="@dimen/eshop_eshoptab_corner_radius"

@@ -11,7 +11,7 @@ public class SingleAppConfig {
     private long catalogCacheMaxAge;
 
     private long eventCacheMaxAge;
-    
+
     private long promotionCacheMaxAge;
 
     private int numberOfMonthsForLastOrder;
@@ -25,7 +25,7 @@ public class SingleAppConfig {
     private int maximumFractionDigits;
 
     private String dbName;
-    
+
     private String dbEventName;
 
     private String dbFilePattern;
@@ -35,21 +35,21 @@ public class SingleAppConfig {
     private String catalogDetail;
 
     private SingleAppConfig() {
-    	// README FISRT
-    	// Now URLs are stored into AppConfig class that is in common package.
-    	// By default application use production environnement.
-    	// In the first activity you can use menu button to switch environnement (except in release mode). This action will also exit application.
-    	
+        // README FISRT
+        // Now URLs are stored into AppConfig class that is in common package.
+        // By default application use production environnement.
+        // In the first activity you can use menu button to switch environnement (except in release mode). This action will also exit application.
+
         // Attention! If you want to add a facebook page to the app you still have to filter the
         // feeds on doesFeedComeFromCarrefourUser
-        carrefourFeedPath = new String[] { "beaute.cosmetique.carrefour/feed?limit=10",
+        carrefourFeedPath = new String[]{"beaute.cosmetique.carrefour/feed?limit=10",
                 "spectacles.carrefour/feed?limit=10", "ideesetrecettes.carrefour/feed?limit=10",
-                "boiteaideesproduitscarrefour/feed?limit=10", "CarrefourOoshop/feed?limit=10" };
+                "boiteaideesproduitscarrefour/feed?limit=10", "CarrefourOoshop/feed?limit=10"};
 
         // Cache the Catalog Content for 2 hours.
 //        catalogCacheMaxAge = 1000 * 60 * 60 * 2;
         catalogCacheMaxAge = 1;
-        
+
         // Cache the Catalog Content for 2 hours.
 //        eventCacheMaxAge = 1000 * 60 * 60 * 2;
         eventCacheMaxAge = 1;
@@ -72,22 +72,22 @@ public class SingleAppConfig {
         maximumFractionDigits = 2;
 
         dbName = "folder_v4";
-        
+
         dbEventName = "event";
 
         dbFilePattern = "%s.db_%s";
 
         metadataFilePath = "%s.plist";
-        
-        catalogDetail = "info.html";
-    }
 
-    public String getNewsUrl() {
-        return AppConfig.getNewsURL();
+        catalogDetail = "info.html";
     }
 
     public static SingleAppConfig getSingleAppConfig() {
         return instance;
+    }
+
+    public String getNewsUrl() {
+        return AppConfig.getNewsURL();
     }
 
     public String getBrowserUrl() {
@@ -107,10 +107,10 @@ public class SingleAppConfig {
     }
 
     public long getEventCacheMaxAge() {
-		return eventCacheMaxAge;
-	}
+        return eventCacheMaxAge;
+    }
 
-	public long getPromotionCacheMaxAge() {
+    public long getPromotionCacheMaxAge() {
         return promotionCacheMaxAge;
     }
 

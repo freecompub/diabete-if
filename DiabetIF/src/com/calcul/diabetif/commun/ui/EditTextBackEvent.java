@@ -31,7 +31,7 @@ public class EditTextBackEvent extends EditText {
 
     /**
      * D�fini le listener pour la gestion de la touche Back en mode clavier
-     * 
+     *
      * @param listener
      */
     public void setOnEditTextImeBackListener(EditTextImeBackListener listener) {
@@ -42,13 +42,11 @@ public class EditTextBackEvent extends EditText {
 
         /**
          * Se produit lorsque la touche Back est press� pour sortir du mode clavier de l'IME
-         * 
-         * @param ctrl
-         *            Controle EditTextBackEvent parent
-         * @param text
-         *            Texte du contr�le
+         *
+         * @param ctrl Controle EditTextBackEvent parent
+         * @param text Texte du contr�le
          */
-        public abstract void onImeBack(EditTextBackEvent ctrl, String text);
+        void onImeBack(EditTextBackEvent ctrl, String text);
     }
 
 }

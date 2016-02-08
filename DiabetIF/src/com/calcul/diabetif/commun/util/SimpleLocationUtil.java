@@ -13,18 +13,18 @@ public class SimpleLocationUtil {
     private static final int MIN_MINUTES = 2;
     private static final Criteria DEFAULT_LOCATION_PROVIDER_CRITERIA = new Criteria();
 
-    private Context context;
-    private LocationListener listener;
-    private LocationManager locationManager;
-
     static {
         DEFAULT_LOCATION_PROVIDER_CRITERIA.setAccuracy(Criteria.ACCURACY_FINE);
         DEFAULT_LOCATION_PROVIDER_CRITERIA.setPowerRequirement(Criteria.POWER_LOW);
     }
 
+    private Context context;
+    private LocationListener listener;
+    private LocationManager locationManager;
+
     /**
      * Constructor
-     * 
+     *
      * @param context
      * @param listener
      */
@@ -47,7 +47,7 @@ public class SimpleLocationUtil {
 
     /**
      * Gets the last known location from the location manager.
-     * 
+     *
      * @return the last known location.
      */
     public Location getLastKnownLocation() {

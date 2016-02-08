@@ -7,10 +7,10 @@ import android.preference.PreferenceManager;
 
 public class LoyaltyCardPreference {
 
-    private static SharedPreferences loyaltyCardPreference;
-    private static SharedPreferences checkFilePreference;
     private static final String PREFS_CHECK_FILE = "checkedCheckFile";
     private static final String CARD_NUMBER = "CARD_NUMBER";
+    private static SharedPreferences loyaltyCardPreference;
+    private static SharedPreferences checkFilePreference;
 
 //    private static final String IS_NOT_CMC = "IS_NOT_CMC";
 
@@ -19,10 +19,14 @@ public class LoyaltyCardPreference {
 
     public synchronized static void init(Context context) {
         if (loyaltyCardPreference == null && context != null) {
-        	loyaltyCardPreference = PreferenceManager.getDefaultSharedPreferences(context);
+            loyaltyCardPreference = PreferenceManager.getDefaultSharedPreferences(context);
             checkFilePreference = context.getApplicationContext().getSharedPreferences(
                     PREFS_CHECK_FILE, Activity.MODE_PRIVATE);
         }
+    }
+
+    public static String getCardNumber() {
+        return loyaltyCardPreference.getString(CARD_NUMBER, null);
     }
 
     /* Card Number */
@@ -32,23 +36,11 @@ public class LoyaltyCardPreference {
         editor.commit();
     }
 
-    public static String getCardNumber() {
-        return loyaltyCardPreference.getString(CARD_NUMBER, null);
-    }
-
     public static boolean hasCardNumber() {
         return getCardNumber() != null && getCardNumber().length() > 0;
     }
 
 
-
-
-
-
-
-    
-
-    
 //    public static void setCmcMode(boolean isNotCMC) {
 //    	SharedPreferences.Editor editor = loyaltyCardPreference.edit();
 //        editor.putBoolean(IS_NOT_CMC, isNotCMC);

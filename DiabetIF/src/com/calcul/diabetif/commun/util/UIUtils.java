@@ -13,9 +13,8 @@ import android.widget.EditText;
 
 /**
  * A class containing utility methods for creating/manipulating user interface.
- * 
+ *
  * @author yannarak_w
- * 
  */
 public class UIUtils {
 
@@ -25,11 +24,9 @@ public class UIUtils {
 
     /**
      * Convert DIP value to Pixel value
-     * 
-     * @param context
-     *            activity context
-     * @param dip
-     *            dip value to convert
+     *
+     * @param context activity context
+     * @param dip     dip value to convert
      * @return pixel value converted
      */
     public static float convertDipToPixel(Context context, int dip) {
@@ -40,15 +37,11 @@ public class UIUtils {
 
     /**
      * Compute the scale ratio between image 1 and image 2
-     * 
-     * @param w1
-     *            width of image 1
-     * @param h1
-     *            height of image 1
-     * @param w2
-     *            width of image 2
-     * @param h2
-     *            height of image 2
+     *
+     * @param w1 width of image 1
+     * @param h1 height of image 1
+     * @param w2 width of image 2
+     * @param h2 height of image 2
      * @return scale ratio between image 1 and image 2
      */
     public static float computeScaleFactor(int w1, int h1, int w2, int h2) {
@@ -67,7 +60,7 @@ public class UIUtils {
     /**
      * Sets the orientation of the screen based on the sensor if the screen height is higher than
      * the threshold. Otherwise, the portrait orientation is used.
-     * 
+     *
      * @param activity
      */
     public static void configScreenOrientation(Activity activity) {
@@ -80,10 +73,6 @@ public class UIUtils {
             activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         }
     }
-
-
-
-
 
 
     public static AlertDialog getSimpleAlertDialog(Context context, String title, String msg) {
@@ -109,11 +98,11 @@ public class UIUtils {
                 context.getPackageName());
         return context.getResources().getString(resId);
     }
-    
+
     /**
      * Get trimmed string value of editText
      */
     public static String getTrimmedStringFromEditText(EditText editText) {
-    	return editText.getText().toString().trim();
+        return editText.getText().toString().trim();
     }
 }

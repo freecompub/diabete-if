@@ -5,9 +5,8 @@ import java.util.List;
 
 /**
  * String Utilities
- * 
+ *
  * @author saravuth
- * 
  */
 public class StringUtils {
 
@@ -65,7 +64,7 @@ public class StringUtils {
         }
         return lists.toArray(new String[lists.size()]);
     }
-    
+
     public static String capitalize(String word) {
         if (!StringUtils.isNotEmpty(word)) {
             return word;

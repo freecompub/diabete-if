@@ -1,8 +1,6 @@
 package com.calcul.diabetif.commun.ui;
 
 
-
-
 import android.content.Context;
 import android.view.Gravity;
 import android.view.View;
@@ -17,16 +15,16 @@ public class TabBarBadgeView extends BadgeView {
         super(context, view);
         init();
     }
-    
+
     public TabBarBadgeView(Context context, TabWidget target, int index) {
-        super(context, target,  index);
+        super(context, target, index);
         init();
     }
-    
-    private void init(){
+
+    private void init() {
         setTextSize(10);
         setBackgroundResource(R.drawable.eshop_badge_selector);
         setGravity(Gravity.CENTER);
     }
-    
+
 }

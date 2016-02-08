@@ -1,22 +1,15 @@
 package com.calcul.diabetif.commun.util;
 
+import com.calcul.diabetif.commun.constant.SingleAppConfig;
+
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Currency;
-
-import com.calcul.diabetif.commun.constant.SingleAppConfig;
 
 public class CurrencyFormattor {
 
     private static CurrencyFormattor instance;
     private DecimalFormat decimalFormat;
-
-    public static CurrencyFormattor getInstance() {
-        if (instance == null) {
-            instance = new CurrencyFormattor();
-        }
-        return instance;
-    }
 
     public CurrencyFormattor() {
         SingleAppConfig singleAppConfig = SingleAppConfig.getSingleAppConfig();
@@ -30,6 +23,13 @@ public class CurrencyFormattor {
         String nagativePrefix = decimalFormat.getNegativePrefix();
         decimalFormat.setNegativePrefix(nagativePrefix.replace('(', '-'));
         decimalFormat.setNegativeSuffix("");
+    }
+
+    public static CurrencyFormattor getInstance() {
+        if (instance == null) {
+            instance = new CurrencyFormattor();
+        }
+        return instance;
     }
 
     public String format(Number number) {

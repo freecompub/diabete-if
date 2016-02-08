@@ -11,13 +11,9 @@ public abstract class BackgroundRunnable implements Runnable {
 
     private Handler handler;
 
-    // Ugly hack to test the background runnable.
-    // TODO: Find a better way to set the test environnement.
-    public static void setTestEnvironnement(boolean isTestProject1) {
-        isTestProject = isTestProject1;
-    }
-
-    /** Constructor is called in the Main thread. */
+    /**
+     * Constructor is called in the Main thread.
+     */
     public BackgroundRunnable() {
         handler = new Handler() {
             public void handleMessage(Message msg) {
@@ -29,6 +25,12 @@ public abstract class BackgroundRunnable implements Runnable {
                 failure();
             }
         };
+    }
+
+    // Ugly hack to test the background runnable.
+    // TODO: Find a better way to set the test environnement.
+    public static void setTestEnvironnement(boolean isTestProject1) {
+        isTestProject = isTestProject1;
     }
 
     /**

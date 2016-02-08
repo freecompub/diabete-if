@@ -12,10 +12,10 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 public class AppConfig {
-    private static SharedPreferences sharedPrefs = null;
-    private static boolean isInDebugMode = false;
-    private static String svnRevision = null;
-
+    public static final boolean actuality = false;
+    public static final boolean shoppingListe = false;
+    public static final boolean priceChecker = false;
+    public static final boolean setting = false;
     private static final String BROWSER_URL_PROD = "http://mobile-cdn.carrefour.com/static/browser/fr_fr/v4/";
     private static final String NEWS_URL_PROD = "http://cms-mobile-cdn.carrefour.com/";
     private static final String STORELOCATOR_URL_PROD = "http://store-reference-prd.bl.carrefour.com/stores/js-api/";
@@ -25,7 +25,6 @@ public class AppConfig {
     private static final String SUBDOMAIN_PROD = "logc174";
     private static final String SITE_ID_PROD = "503733";
     private static final String SUB_SITE_PROD = "1";
-
     private static final String BROWSER_URL_PREPROD = "http://teke-pp.hmg.carrefour.com/static/browser/fr_be/";
     private static final String NEWS_URL_PREPROD = "http://cms-mobile-cdn-test.carrefour.com/";
     private static final String STORELOCATOR_URL_PREPROD = "http://store-reference-prd.bl.carrefour.com/stores/js-api/";
@@ -35,26 +34,22 @@ public class AppConfig {
     private static final String SUBDOMAIN_PREPROD = "logc174";
     private static final String SITE_ID_PREPROD = "503734";
     private static final String SUB_SITE_PREPROD = "1";
-    
     private static final String BROWSER_URL_INTE = "http://mobile-uat.fr.carrefour.com/static/browser/fr_fr/v4/";
     private static final String NEWS_URL_INTE = "http://cms-mobile-cdn-test.carrefour.com/";
-    private static final String STORELOCATOR_URL_INTE= "http://store-reference-prd.bl.carrefour.com/stores/js-api/";
+    private static final String STORELOCATOR_URL_INTE = "http://store-reference-prd.bl.carrefour.com/stores/js-api/";
     private static final String LOYALTY_URL_INTE = "http://mobile-uat.fr.carrefour.com/";
-    private static final String SCRATCHGAME_URL_INTE= "http://integ.igmobile-carrefour.ocito.com";
+    private static final String SCRATCHGAME_URL_INTE = "http://integ.igmobile-carrefour.ocito.com";
     private static final String EVENT_URL_INTE = "http://mobile-uat.fr.carrefour.com/static/event/fr_fr/";
     private static final String SUBDOMAIN_INTE = "logc174";
     private static final String SITE_ID_INTE = "503734";
     private static final String SUB_SITE_INTE = "1";
-
     private static final int INTEGRATION = 1;
     private static final int PREPROD = 2;
     private static final int PROD = 3;
     private static final int INFOS = 4;
-    
-    public  static final boolean actuality=false;
-    public  static final boolean shoppingListe=false;
-    public  static final boolean priceChecker=false;
-    public  static final boolean setting=false;
+    private static SharedPreferences sharedPrefs = null;
+    private static boolean isInDebugMode = false;
+    private static String svnRevision = null;
 
     private AppConfig() {
     }
@@ -99,18 +94,18 @@ public class AppConfig {
 
     public static void configMenuItemSelected(MenuItem item, Context context) {
         switch (item.getItemId()) {
-        case INTEGRATION:
-            setIntegration();
-            break;
-        case PREPROD:
-            setPreProduction();
-            break;
-        case PROD:;
-            setProduction();
-            break;
-        default:
-            showInfoToast(context);
-            break;
+            case INTEGRATION:
+                setIntegration();
+                break;
+            case PREPROD:
+                setPreProduction();
+                break;
+            case PROD:
+                setProduction();
+                break;
+            default:
+                showInfoToast(context);
+                break;
         }
     }
 
@@ -191,13 +186,13 @@ public class AppConfig {
         // TODO quick fix for dev. This method MUST return BROWSER_URL_PROD
         return BROWSER_URL_PREPROD;
     }
-    
+
     public static String getBrowserImageSmallSize() {
-    	return AppConfig.getBrowserURL() + "%s/%s_single_small.jpg";
+        return AppConfig.getBrowserURL() + "%s/%s_single_small.jpg";
     }
-    
+
     public static String getBrowserImageFullSize() {
-    	return AppConfig.getBrowserURL() + "%s/%s_single.jpg";
+        return AppConfig.getBrowserURL() + "%s/%s_single.jpg";
     }
 
     public static String getNewsURL() {

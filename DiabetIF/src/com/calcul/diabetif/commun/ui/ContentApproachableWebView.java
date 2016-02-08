@@ -1,10 +1,5 @@
 package com.calcul.diabetif.commun.ui;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
-import com.calcul.diabetif.R;
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -15,12 +10,16 @@ import android.webkit.SslErrorHandler;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.calcul.diabetif.R;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 
 /**
  * Customize WebView to be able to get content.
- * 
+ *
  * @author saravuth
- * 
  */
 public class ContentApproachableWebView extends WebView {
 
@@ -85,13 +84,17 @@ public class ContentApproachableWebView extends WebView {
     protected void hideProgressDialog() {
         Log.v(TAG, "hideProgressDialog()");
         if (progressDialog != null) {
-        	try{
-    			progressDialog.dismiss();
-    		}catch(Exception e){
-    			// nothing
-    		}
+            try {
+                progressDialog.dismiss();
+            } catch (Exception e) {
+                // nothing
+            }
             progressDialog = null;
         }
+    }
+
+    public interface ResponseHandler {
+        void onFinished(String url, String html);
     }
 
     /* An object of this class will be registered as a JavaScript interface */
@@ -117,10 +120,6 @@ public class ContentApproachableWebView extends WebView {
         }
     }
 
-    public interface ResponseHandler {
-        void onFinished(String url, String html);
-    }
-
     /* inner class */
     private class InternalWebViewClient extends WebViewClient {
 
@@ -142,7 +141,7 @@ public class ContentApproachableWebView extends WebView {
 
         @Override
         public void onReceivedError(WebView view, int errorCode, String description,
-                String failingUrl) {
+                                    String failingUrl) {
             Log.e(TAG, "onReceivedError()" + errorCode + ": " + description);
             super.onReceivedError(view, errorCode, description, failingUrl);
         }

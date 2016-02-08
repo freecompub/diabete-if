@@ -1,9 +1,5 @@
 package com.calcul.diabetif.commun.database;
 
-import java.sql.SQLException;
-import java.sql.Savepoint;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.util.Log;
@@ -11,19 +7,22 @@ import android.util.Log;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.support.DatabaseConnection;
 
+import java.sql.SQLException;
+import java.sql.Savepoint;
+import java.util.concurrent.atomic.AtomicInteger;
+
 public abstract class DatabaseTransactionOpenHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String TAG = DatabaseTransactionOpenHelper.class.getSimpleName();
-    private static AtomicInteger savePointCounter = new AtomicInteger();
     private static final String SAVE_POINT_PREFIX = "_TXN";
-
+    private static AtomicInteger savePointCounter = new AtomicInteger();
     private boolean hasSavePoint = false;
     private Savepoint savePoint = null;
     private DatabaseConnection connection = null;
     private boolean autoCommitAtStart = false;
 
     public DatabaseTransactionOpenHelper(Context context, String databaseName, CursorFactory factory,
-            int databaseVersion) {
+                                         int databaseVersion) {
         super(context, databaseName, factory, databaseVersion);
     }
 

@@ -6,28 +6,28 @@ public class E4UserAdvantage {
     private String mFirstName;
     private String mLastName;
 
-    public void setAdvantage(double mAdvantage) {
-        this.mAdvantage = mAdvantage;
-    }
-
     public double getAdvantage() {
         return mAdvantage;
     }
 
-    public void setFirstName(String firstName) {
-        this.mFirstName = firstName;
+    public void setAdvantage(double mAdvantage) {
+        this.mAdvantage = mAdvantage;
     }
 
     public String getFirstName() {
         return mFirstName;
     }
 
-    public void setLastName(String lastName) {
-        this.mLastName = lastName;
+    public void setFirstName(String firstName) {
+        this.mFirstName = firstName;
     }
 
     public String getLastName() {
         return mLastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.mLastName = lastName;
     }
 
     public String getFullName() {

@@ -11,25 +11,22 @@ public class AlertDialogHelper {
 
     private static AlertDialog alertDialog;
 
-    public interface C4Exception {
-        public String getLocalizedMessage(Context context);
-    }
-
     public static void showAlertDialogForException(Context context, C4Exception exception) {
         showAlertDialog(context, null, exception.getLocalizedMessage(context), null);
     }
 
     public static void showAlertDialogForExceptionWithDelegate(Context context,
-            C4Exception exception, DialogInterface.OnClickListener onClicklistener) {
+                                                               C4Exception exception, DialogInterface.OnClickListener onClicklistener) {
         showAlertDialog(context, null, exception.getLocalizedMessage(context), onClicklistener);
     }
+
     public static void showAlertDialogForException(Context context, String title,
-            C4Exception exception) {
+                                                   C4Exception exception) {
         showAlertDialog(context, title, exception.getLocalizedMessage(context), null);
     }
 
     public static void showAlertDialogForExceptionWithDelegate(Context context, String title,
-            C4Exception exception, DialogInterface.OnClickListener onClicklistener) {
+                                                               C4Exception exception, DialogInterface.OnClickListener onClicklistener) {
         showAlertDialog(context, title, exception.getLocalizedMessage(context), onClicklistener);
     }
 
@@ -41,12 +38,12 @@ public class AlertDialogHelper {
         showAlertDialog(context, title, message, null);
     }
 
-
     public static void showAlertDialog(Context context, int title, int message) {
         showAlertDialog(context, context.getString(title), context.getString(message), null);
     }
+
     public static void showAlertDialog(Context context, String title, String message,
-            DialogInterface.OnClickListener onClicklistener) {
+                                       DialogInterface.OnClickListener onClicklistener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         if (title != null) {
             builder.setTitle(title);
@@ -69,7 +66,7 @@ public class AlertDialogHelper {
     }
 
     public static void showAlertDialogWithItems(Context context, String title, String[] items,
-            DialogInterface.OnClickListener onClicklistener) {
+                                                DialogInterface.OnClickListener onClicklistener) {
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         if (title != null) {
             builder.setTitle(title);
@@ -78,37 +75,37 @@ public class AlertDialogHelper {
         builder.show();
     }
 
-	public static void showAlertDialogWithAdapter(Context context,
-			String title, ListAdapter adapter,
-			DialogInterface.OnClickListener onClicklistener) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		if (title != null) {
-			builder.setTitle(title);
-		}
-		builder.setSingleChoiceItems(adapter, 0, onClicklistener);
-		builder.show();
-	}
-    
-	public static void showAlertDialogWithView(Context context, String title, View view, DialogInterface.OnClickListener onClicklistener) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(context);
-		if (title != null) {
-			builder.setTitle(title);
-		}
-		builder.setCancelable(false);
-		builder.setView(view);
-		builder.setNeutralButton(R.string.ok, onClicklistener);
-		builder.show();
-	}
-	
+    public static void showAlertDialogWithAdapter(Context context,
+                                                  String title, ListAdapter adapter,
+                                                  DialogInterface.OnClickListener onClicklistener) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        if (title != null) {
+            builder.setTitle(title);
+        }
+        builder.setSingleChoiceItems(adapter, 0, onClicklistener);
+        builder.show();
+    }
+
+    public static void showAlertDialogWithView(Context context, String title, View view, DialogInterface.OnClickListener onClicklistener) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        if (title != null) {
+            builder.setTitle(title);
+        }
+        builder.setCancelable(false);
+        builder.setView(view);
+        builder.setNeutralButton(R.string.ok, onClicklistener);
+        builder.show();
+    }
+
     public static void cancelCurrentAlertDialog() {
         if (alertDialog != null && alertDialog.isShowing()) {
             alertDialog.cancel();
         }
     }
-    
-    public static void showAlertDialogForChoice (Context context, String title, String message,String oktext, String cancelText,
-            DialogInterface.OnClickListener onClicklistener) {
-    	AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+    public static void showAlertDialogForChoice(Context context, String title, String message, String oktext, String cancelText,
+                                                DialogInterface.OnClickListener onClicklistener) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
         if (title != null) {
             builder.setTitle(title);
         }
@@ -125,7 +122,7 @@ public class AlertDialogHelper {
 
             };
         }
-        
+
         builder.setPositiveButton(oktext, onClicklistener);
         builder.setNegativeButton(cancelText, new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -133,5 +130,9 @@ public class AlertDialogHelper {
             }
         });
         alertDialog = builder.show();
+    }
+
+    public interface C4Exception {
+        String getLocalizedMessage(Context context);
     }
 }
