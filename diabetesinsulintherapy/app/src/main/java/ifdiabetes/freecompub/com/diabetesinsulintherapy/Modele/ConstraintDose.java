@@ -9,5 +9,5 @@ public class ConstraintDose {
     double Ratio;
     double sensitivity;
     double hGoal;
-    double lgoal;
+    double lGoal;
 }
