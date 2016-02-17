@@ -6,39 +6,30 @@ import com.activeandroid.annotation.Table;
 
 import java.util.Date;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
+
 /**
  * Created by s826210 on 15/02/2016.
  */
 @Table(name = "BloodSample")
-public class BloodSample extends Model {
-    @Column(name = "id", index = true)
-    private Long id;
+public class BloodSample extends RealmObject {
 
-    @Column(name = "prelevementDate")
+
     private Date prelevementDate;
 
-    @Column(name = "bloodGlucoseLevels")
     private double bloodGlucoseLevels;
 
-    @Column(name = "CarbohydrateFoods")
     private double CarbohydrateFoods;
 
-    @Column(name = "insulinForFood")
     private double insulinForFood;
 
-    @Column(name = "insulinForCorection")
     private double insulinForCorection;
 
-    @Column(name = "afterMeal")
     private boolean afterMeal;
 
-    @Column(name = "beforeMeal")
     private boolean beforeMeal;
-
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public Date getPrelevementDate() {
         return prelevementDate;

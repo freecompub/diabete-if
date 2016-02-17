@@ -13,6 +13,5 @@ public class DayManager {
 
     public void addPrelevement(BloodSample prelevement) {
         Log.d(TAG, "addPrelevement");
-        prelevement.save();
     }
 }
