@@ -6,14 +6,12 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_setting">SettingActivity</string>
-    <string name="ratio_matin">Ratio</string>
-    <string name="sencibilit_resucrage">sencibilité resucrage</string>
-    <string name="objectife_glecymeque">objectife Glecymeque</string>
-    <string name="sencibilit_apr_s_midi">sencibilité Aprés-midi</string>
-    <string name="sencibilit_matin">sencibilité Matin</string>
-    <string name="ratio_soir">Ratio soir</string>
-    <string name="ratio_midi">Ratio Midi</string>
-    <string name="_a">à</string>
+    <string name="ratio_matin">Ratio :</string>
+    <string name="sencibilit_resucrage">Sencibilité au resucrage :</string>
+    <string name="objectife_glecymeque">Objectif glycémique entre :</string>
+    <string name="sencibilit_matin">sensibilité :</string>
+    <string name="time_interval">Heur d\'application entre :</string>
+    <string name="_a">et</string>
 
 </resources>
 

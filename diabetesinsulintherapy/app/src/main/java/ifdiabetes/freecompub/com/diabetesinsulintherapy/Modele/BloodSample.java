@@ -1,8 +1,6 @@
 package ifdiabetes.freecompub.com.diabetesinsulintherapy.Modele;
 
-import com.activeandroid.Model;
-import com.activeandroid.annotation.Column;
-import com.activeandroid.annotation.Table;
+
 
 import java.util.Date;
 
@@ -13,7 +11,7 @@ import io.realm.annotations.Required;
 /**
  * Created by s826210 on 15/02/2016.
  */
-@Table(name = "BloodSample")
+
 public class BloodSample extends RealmObject {
 
 

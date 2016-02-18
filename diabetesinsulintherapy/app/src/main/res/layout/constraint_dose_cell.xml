@@ -8,21 +8,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="@dimen/border_margin_top_first_line_cell_constraint"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/border_margin_cell_constraint"
+        android:layout_marginRight="@dimen/border_margin_cell_constraint">
 
         <TextView
             android:id="@+id/TextView02"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="@string/ratio_matin" />
+            android:layout_marginLeft="10dp"
+            android:text="@string/ratio_matin"
+            android:layout_marginRight="10dp"
+            android:textSize="@dimen/text_size_sub_title_cell_constraint" />
 
         <EditText
             android:id="@+id/EditText_ratio_matin"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="65dp"
-            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="number|numberSigned|numberDecimal" />
@@ -33,21 +36,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/ratio"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="@dimen/border_margin_top_cell_constraint"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/border_margin_cell_constraint"
+        android:layout_marginRight="@dimen/border_margin_cell_constraint">
 
         <TextView
             android:id="@+id/ratiom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="@string/sencibilit_resucrage" />
+            android:text="@string/sencibilit_resucrage"
+            android:textSize="@dimen/text_size_sub_title_cell_constraint" />
 
         <EditText
             android:id="@+id/edit_sencibilite"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="numberDecimal" />
@@ -58,21 +62,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/senciblilite_resucrage"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="@dimen/border_margin_top_cell_constraint"
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/border_margin_cell_constraint"
+        android:layout_marginRight="@dimen/border_margin_cell_constraint">
 
         <TextView
             android:id="@+id/TextView04"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
-            android:text="@string/sencibilit_matin" />
+            android:text="@string/sencibilit_matin"
+            android:textSize="@dimen/text_size_sub_title_cell_constraint" />
 
         <EditText
             android:id="@+id/EditText_sencibilite_insu_matin"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:ems="10"
             android:inputType="numberDecimal" />
@@ -83,41 +89,102 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/senciblite_insuline"
-        android:layout_marginTop="5dp">
+        android:layout_marginTop="@dimen/border_margin_top_cell_constraint"
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/border_margin_cell_constraint"
+        android:layout_marginLeft="@dimen/border_margin_cell_constraint">
 
         <TextView
             android:id="@+id/TextView01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:text="@string/objectife_glecymeque" />
+            android:text="@string/objectife_glecymeque"
+            android:textSize="@dimen/text_size_sub_title_cell_constraint" />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <EditText
+        android:id="@+id/EditText_minG"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="numberDecimal" />
 
-        <EditText
-            android:id="@+id/EditText_minG"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="5dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="numberDecimal" />
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="5dp"
+        android:text="@string/_a"
+        android:textSize="@dimen/text_size_sub_title_cell_constraint" />
 
+    <EditText
+        android:id="@+id/max_glyf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:ems="10"
+        android:inputType="number">
+
+    </EditText>
+
+</LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/time_interval"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/border_margin_top_cell_constraint"
+        android:orientation="vertical"
+        android:layout_below="@+id/objectif_glycemique"
+        android:layout_marginLeft="@dimen/border_margin_cell_constraint"
+        android:layout_marginRight="@dimen/border_margin_cell_constraint">
         <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
+            android:id="@+id/TextViewtime"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dp"
-            android:text="@string/_a" />
+            android:layout_marginLeft="5dp"
+            android:text="@string/time_interval"
+            android:textSize="@dimen/text_size_sub_title_cell_constraint" />
 
-        <EditText
-            android:id="@+id/max_glyf"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:inputType="number">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        </EditText>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="time"
+                android:ems="10"
+                android:id="@+id/start_time"
+                android:layout_weight="1"
+                android:enabled="true"
+                android:focusable="false"
+                android:longClickable="false"
+                android:linksClickable="false" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:text="@string/_a"
+                android:textSize="@dimen/text_size_sub_title_cell_constraint" />
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="time"
+                android:ems="10"
+                android:id="@+id/end_time"
+                android:layout_weight="1"
+                android:enabled="true"
+                android:focusable="false"
+                android:longClickable="false"
+                android:linksClickable="false" />
+
+
+        </LinearLayout>
+
     </LinearLayout>
 </RelativeLayout>

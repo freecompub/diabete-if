@@ -2,7 +2,6 @@ package ifdiabetes.freecompub.com.diabetesinsulintherapy.Application;
 
 import android.app.Application;
 
-import com.activeandroid.ActiveAndroid;
 
 import io.realm.RealmConfiguration;
 

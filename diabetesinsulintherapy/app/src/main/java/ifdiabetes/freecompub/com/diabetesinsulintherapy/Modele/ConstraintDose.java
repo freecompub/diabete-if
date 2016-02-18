@@ -10,4 +10,6 @@ public class ConstraintDose {
     double sensitivity;
     double hGoal;
     double lGoal;
+    String startHouer;
+    String endHouer;
 }
